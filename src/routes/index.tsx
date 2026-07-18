@@ -324,20 +324,20 @@ function Index() {
   return (
     <div ref={containerRef} className="min-h-screen bg-background text-foreground relative">
       {searchOpen && (
-        <div className="fixed inset-0 z-50 flex flex-col items-center bg-background/95 pt-[20vh] backdrop-blur-sm px-6">
+        <div className="fixed inset-0 z-50 flex flex-col items-center bg-background/95 pt-[15vh] sm:pt-[20vh] backdrop-blur-sm px-4 sm:px-6">
           <div className="w-full max-w-3xl relative">
-            <Search className="absolute left-6 top-1/2 -translate-y-1/2 h-8 w-8 text-muted-foreground" />
+            <Search className="absolute left-5 sm:left-6 top-1/2 -translate-y-1/2 h-6 w-6 sm:h-8 sm:w-8 text-muted-foreground" />
             <input
               autoFocus
               type="text"
-              placeholder="Search fault codes, repair guides, specs..."
-              className="w-full bg-card border-2 border-primary/50 focus:border-primary rounded-full py-6 pl-20 pr-10 text-2xl outline-none shadow-2xl transition-all"
+              placeholder="Search fault codes, specs..."
+              className="w-full bg-card border-2 border-primary/50 focus:border-primary rounded-full py-4 sm:py-6 pl-14 sm:pl-20 pr-16 sm:pr-20 text-lg sm:text-2xl outline-none shadow-2xl transition-all"
             />
             <button
               onClick={() => setSearchOpen(false)}
-              className="absolute right-6 top-1/2 -translate-y-1/2 flex items-center justify-center rounded-full p-2 text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
+              className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 flex items-center justify-center rounded-full p-2 text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
             >
-              <X className="h-6 w-6" strokeWidth={2} />
+              <X className="h-5 w-5 sm:h-6 sm:w-6" strokeWidth={2} />
             </button>
           </div>
         </div>
@@ -585,25 +585,25 @@ function Index() {
 
       <section className="mx-auto mt-12 max-w-[1536px] px-6 pb-16">
         <div className="relative overflow-hidden rounded-xl border border-border bg-card">
-          <div className="grid grid-cols-1 items-center gap-8 p-8 md:grid-cols-[240px_1fr_auto] md:p-10">
-            <img src={mechanicSmall} alt="" loading="lazy" width={640} height={640} className="h-36 w-full rounded-lg object-cover md:h-40 md:w-60" />
+          <div className="grid grid-cols-1 items-center gap-6 p-6 sm:gap-8 sm:p-8 md:grid-cols-[240px_1fr_auto] md:p-10">
+            <img src={mechanicSmall} alt="" loading="lazy" width={640} height={640} className="h-48 sm:h-56 w-full rounded-lg object-cover object-top md:h-40 md:w-60 md:object-center" />
             <div>
-              <h3 className="font-display text-3xl font-black tracking-wide">NEED EXPERT HELP?</h3>
+              <h3 className="font-display text-2xl sm:text-3xl font-black tracking-wide">NEED EXPERT HELP?</h3>
               <p className="mt-3 text-base text-muted-foreground">
                 Can't find what you're looking for?
                 <br />
                 Ask ReMech your question and get answers from real mechanical experts.
               </p>
             </div>
-            <div className="flex flex-col items-end gap-4">
-              <button className="inline-flex items-center gap-2 rounded-lg bg-primary px-8 py-4 font-display text-lg font-bold text-primary-foreground hover:brightness-110">
+            <div className="flex flex-col items-center md:items-end gap-4">
+              <button className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-lg bg-primary px-8 py-4 font-display text-lg font-bold text-primary-foreground hover:brightness-110">
                 Ask ReMech Now <ArrowRight className="h-5 w-5" />
               </button>
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <ShieldCheck className="h-5 w-5 text-primary" />
-                <span>
+                <ShieldCheck className="h-5 w-5 text-primary shrink-0" />
+                <span className="text-left md:text-right">
                   Real answers. Real mechanics.
-                  <br />
+                  <br className="sm:hidden md:block" />
                   No robots. Just experience.
                 </span>
               </div>
