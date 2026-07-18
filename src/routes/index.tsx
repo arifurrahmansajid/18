@@ -452,7 +452,7 @@ function Index() {
                 )}
               </h3>
               <p className="mt-3 text-base leading-relaxed text-muted-foreground">{c.desc}</p>
-              <a href="#" className="mt-5 inline-flex items-center gap-1 text-base font-semibold text-primary">
+              <a href="#" className="mt-auto pt-5 inline-flex items-center gap-1 text-base font-semibold text-primary">
                 {c.cta} <ArrowRight className="h-5 w-5" />
               </a>
             </div>
