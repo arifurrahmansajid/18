@@ -1,5 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, useEffect, useRef } from "react";
+import { useTheme } from "@/hooks/useTheme";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import gsap from "gsap";
 import { Loader } from "@/components/Loader";
 import {
@@ -286,6 +288,7 @@ function Footer() {
 }
 
 function Index() {
+  const { theme, toggleTheme } = useTheme();
   const [searchOpen, setSearchOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -322,7 +325,7 @@ function Index() {
   }
 
   return (
-    <div ref={containerRef} className="min-h-screen bg-background text-foreground relative">
+    <div ref={containerRef} className={`min-h-screen bg-background text-foreground relative ${theme}`}>
       {searchOpen && (
         <div className="fixed inset-0 z-50 flex flex-col items-center bg-background/95 pt-[15vh] sm:pt-[20vh] backdrop-blur-sm px-4 sm:px-6">
           <div className="w-full max-w-3xl relative">
@@ -364,6 +367,7 @@ function Index() {
           >
             <Search className="h-4 w-4 sm:h-5 sm:w-5" strokeWidth={1.8} />
           </button>
+          <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
           <Link
             to="/login"
             className="flex h-9 sm:h-11 items-center gap-1.5 sm:gap-2.5 rounded-xl sm:rounded-[14px] border-[1.5px] border-primary bg-transparent px-3 sm:px-6 text-sm sm:text-[15px] font-bold text-primary transition hover:bg-primary/10"
@@ -385,7 +389,7 @@ function Index() {
               Search fault codes, repair guides, service specifications and real-world mechanical answers for heavy equipment and engines.
             </p>
 
-            <div className="mt-6 sm:mt-8 flex w-full max-w-xl items-center rounded-xl border border-border bg-[#161616] p-1.5 shadow-xl gsap-hero-text">
+            <div className="mt-6 sm:mt-8 flex w-full max-w-xl items-center rounded-xl border border-border bg-card p-1.5 shadow-xl gsap-hero-text">
               <div className="flex flex-1 items-center gap-2 sm:gap-3 px-3 sm:px-4 h-[44px] sm:h-[52px]">
                 <Search className="h-4 w-4 sm:h-[22px] sm:w-[22px] text-muted-foreground shrink-0" strokeWidth={1.5} />
                 <input
@@ -424,7 +428,7 @@ function Index() {
             />
             <div className="absolute right-[5%] top-[12%] sm:right-[15%] max-w-[280px] rounded-xl border-[1.5px] border-primary bg-[#111111]/95 p-5 shadow-2xl backdrop-blur gsap-hero-bubble hidden md:block">
               <div className="mb-1 text-[15px] font-bold text-primary">Hi, I'm ReMech.</div>
-              <p className="text-[14px] leading-relaxed text-foreground/90">
+              <p className="text-[14px] leading-relaxed text-white">
                 Let's diagnose Code 559 together. I'll walk you through each step.
               </p>
               {/* Pointing tail */}
