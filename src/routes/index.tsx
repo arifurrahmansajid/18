@@ -35,7 +35,7 @@ import videoCummins from "@/assets/video-cummins.jpg";
 import videoDpf from "@/assets/video-dpf.jpg";
 import videoHydrema from "@/assets/video-hydrema.jpg";
 import videoCat from "@/assets/video-cat.jpg";
-import logoImg from "@/assets/323refef@2xq.png";
+import logoImg from "@/assets/323refef@2x.png";
 
 function EngineIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
@@ -84,7 +84,7 @@ const stats = [
 ];
 
 const manufacturers = [
-  { 
+  {
     name: "Cummins",
     logo: (
       <div className="relative flex h-16 w-16 items-center justify-center text-white">
@@ -130,7 +130,7 @@ const manufacturers = [
       <div className="relative flex h-16 w-16 items-center justify-center">
         <div className="h-12 w-12 rounded-full border-[3px] border-[#c0c0c0]" />
         <div className="absolute right-1 top-0 h-4 w-4 text-[#c0c0c0]">
-           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4"><path d="M7 17L17 7M17 7H11M17 7V13"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4"><path d="M7 17L17 7M17 7H11M17 7V13" /></svg>
         </div>
         <div className="absolute border-y-[2px] border-[#c0c0c0] bg-[#161616] py-[1px] text-center text-[9px] font-black text-[#e5e5e5]" style={{ width: '56px' }}>VOLVO</div>
       </div>
@@ -152,7 +152,7 @@ const manufacturers = [
       <div className="flex h-16 w-16 items-center justify-center">
         <div className="flex h-12 w-12 flex-col items-center justify-center rounded bg-[#0055a4] p-1">
           <div className="mb-0.5 flex text-white">
-             <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="9" cy="12" r="4"/><circle cx="15" cy="12" r="4"/></svg>
+            <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="9" cy="12" r="4" /><circle cx="15" cy="12" r="4" /></svg>
           </div>
           <span className="tracking-tight text-[10px] font-bold text-white">Perkins</span>
         </div>
@@ -237,7 +237,7 @@ function Footer() {
             </button>
           </div>
         </div>
-        
+
         <div>
           <h4 className="font-display font-bold text-xl mb-6">Quick Links</h4>
           <ul className="space-y-4 text-base text-muted-foreground">
@@ -302,7 +302,7 @@ function Index() {
     if (!isLoading && containerRef.current) {
       const ctx = gsap.context(() => {
         const tl = gsap.timeline();
-        
+
         tl.fromTo(".gsap-header", { y: -30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: "power2.out" });
         tl.fromTo(".gsap-hero-title", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }, "-=0.3");
         tl.fromTo(".gsap-hero-text", { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, stagger: 0.15, ease: "power2.out" }, "-=0.5");
@@ -311,7 +311,7 @@ function Index() {
         tl.fromTo(".gsap-category", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, stagger: 0.1, ease: "power2.out" }, "-=0.6");
         tl.fromTo(".gsap-stats", { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: "power2.out" }, "-=0.4");
         tl.fromTo(".gsap-manufacturer", { opacity: 0 }, { opacity: 1, duration: 0.6, ease: "power2.out" }, "-=0.2");
-        
+
       }, containerRef.current);
       return () => ctx.revert();
     }
@@ -327,13 +327,13 @@ function Index() {
         <div className="fixed inset-0 z-50 flex flex-col items-center bg-background/95 pt-[20vh] backdrop-blur-sm px-6">
           <div className="w-full max-w-3xl relative">
             <Search className="absolute left-6 top-1/2 -translate-y-1/2 h-8 w-8 text-muted-foreground" />
-            <input 
+            <input
               autoFocus
-              type="text" 
-              placeholder="Search fault codes, repair guides, specs..." 
+              type="text"
+              placeholder="Search fault codes, repair guides, specs..."
               className="w-full bg-card border-2 border-primary/50 focus:border-primary rounded-full py-6 pl-20 pr-10 text-2xl outline-none shadow-2xl transition-all"
             />
-            <button 
+            <button
               onClick={() => setSearchOpen(false)}
               className="absolute right-6 top-1/2 -translate-y-1/2 flex items-center justify-center rounded-full p-2 text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
             >
@@ -349,9 +349,8 @@ function Index() {
             <a
               key={item}
               href="#"
-              className={`relative text-base font-semibold transition-colors ${
-                i === 0 ? "text-primary" : "text-foreground/85 hover:text-primary"
-              }`}
+              className={`relative text-base font-semibold transition-colors ${i === 0 ? "text-primary" : "text-foreground/85 hover:text-primary"
+                }`}
             >
               {item}
               {i === 0 && <span className="absolute -bottom-2 left-0 h-0.5 w-full bg-primary" />}
@@ -359,13 +358,13 @@ function Index() {
           ))}
         </nav>
         <div className="flex items-center gap-5">
-          <button 
+          <button
             onClick={() => setSearchOpen(true)}
             className="flex h-11 w-11 items-center justify-center rounded-full border border-border/80 bg-background text-muted-foreground transition hover:border-primary hover:text-primary"
           >
             <Search className="h-5 w-5" strokeWidth={1.8} />
           </button>
-          <Link 
+          <Link
             to="/login"
             className="flex h-11 items-center gap-2.5 rounded-[14px] border-[1.5px] border-primary bg-transparent px-6 text-[15px] font-bold text-primary transition hover:bg-primary/10"
           >
@@ -386,27 +385,27 @@ function Index() {
               Search fault codes, repair guides, service specifications and real-world mechanical answers for heavy equipment and engines.
             </p>
 
-            <div className="mt-8 flex max-w-xl items-center gap-2 rounded-lg border border-border bg-card p-2 shadow-xl gsap-hero-text">
-              <div className="flex flex-1 items-center gap-3 px-3">
-                <Search className="h-5 w-5 text-muted-foreground" />
+            <div className="mt-8 flex max-w-xl items-center rounded-xl border border-border bg-[#161616] p-1.5 shadow-xl gsap-hero-text">
+              <div className="flex flex-1 items-center gap-3 px-4 h-[52px]">
+                <Search className="h-[22px] w-[22px] text-muted-foreground" strokeWidth={1.5} />
                 <input
                   type="text"
                   placeholder="Search fault codes, machines, symptoms..."
-                  className="h-14 flex-1 bg-transparent text-base placeholder:text-muted-foreground focus:outline-none"
+                  className="h-full w-full bg-transparent text-[15px] text-foreground placeholder:text-muted-foreground focus:outline-none"
                 />
               </div>
-              <button className="rounded-md bg-primary px-8 py-4 text-base font-bold text-primary-foreground hover:brightness-110">
+              <button className="h-[52px] rounded-lg bg-primary px-8 text-[15px] font-bold text-black transition-transform hover:scale-105 active:scale-95">
                 Search
               </button>
             </div>
 
             <div className="mt-6 gsap-hero-text">
               <p className="mb-3 text-sm font-semibold text-muted-foreground">Popular searches:</p>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2.5">
                 {popular.map((p) => (
                   <button
                     key={p}
-                    className="rounded-full border border-primary/70 px-5 py-2 text-sm font-medium text-primary hover:bg-primary hover:text-primary-foreground"
+                    className="rounded-full border border-border/60 bg-transparent px-4 py-1.5 text-[13px] font-medium text-foreground/80 transition-colors hover:border-primary hover:text-primary"
                   >
                     {p}
                   </button>
@@ -423,12 +422,13 @@ function Index() {
               height={1024}
               className="h-full max-h-[640px] w-full rounded-xl object-cover gsap-hero-img"
             />
-            <div className="absolute right-4 top-8 max-w-[280px] rounded-xl border-2 border-primary bg-background/95 p-5 shadow-2xl backdrop-blur sm:right-6 gsap-hero-bubble">
-              <div className="mb-1 text-base font-bold text-primary">Hi, I'm ReMech.</div>
-              <p className="text-sm leading-relaxed text-foreground/90">
+            <div className="absolute right-[5%] top-[12%] sm:right-[15%] max-w-[280px] rounded-xl border-[1.5px] border-primary bg-[#111111]/95 p-5 shadow-2xl backdrop-blur gsap-hero-bubble hidden md:block">
+              <div className="mb-1 text-[15px] font-bold text-primary">Hi, I'm ReMech.</div>
+              <p className="text-[14px] leading-relaxed text-foreground/90">
                 Let's diagnose Code 559 together. I'll walk you through each step.
               </p>
-              <div className="absolute -left-2 top-8 h-4 w-4 rotate-45 border-b-2 border-l-2 border-primary bg-background" />
+              {/* Pointing tail */}
+              <div className="absolute -bottom-[8px] -left-[8px] h-6 w-6 rotate-[25deg] skew-x-12 border-b-[1.5px] border-l-[1.5px] border-primary bg-[#111111]" style={{ clipPath: 'polygon(0 0, 0% 100%, 100% 100%)' }} />
             </div>
           </div>
         </div>
