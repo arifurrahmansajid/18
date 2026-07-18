@@ -208,7 +208,7 @@ const videos = [
 function Logo() {
   return (
     <a href="/" className="flex items-center">
-      <img src={logoImg} alt="ReMech" className="h-16 w-auto object-contain" />
+      <img src={logoImg} alt="ReMech" className="h-10 sm:h-16 w-auto object-contain" />
     </a>
   );
 }
@@ -357,18 +357,18 @@ function Index() {
             </a>
           ))}
         </nav>
-        <div className="flex items-center gap-5">
+        <div className="flex items-center gap-2 sm:gap-5">
           <button
             onClick={() => setSearchOpen(true)}
-            className="flex h-11 w-11 items-center justify-center rounded-full border border-border/80 bg-background text-muted-foreground transition hover:border-primary hover:text-primary"
+            className="flex h-9 w-9 sm:h-11 sm:w-11 items-center justify-center rounded-full border border-border/80 bg-background text-muted-foreground transition hover:border-primary hover:text-primary"
           >
-            <Search className="h-5 w-5" strokeWidth={1.8} />
+            <Search className="h-4 w-4 sm:h-5 sm:w-5" strokeWidth={1.8} />
           </button>
           <Link
             to="/login"
-            className="flex h-11 items-center gap-2.5 rounded-[14px] border-[1.5px] border-primary bg-transparent px-6 text-[15px] font-bold text-primary transition hover:bg-primary/10"
+            className="flex h-9 sm:h-11 items-center gap-1.5 sm:gap-2.5 rounded-xl sm:rounded-[14px] border-[1.5px] border-primary bg-transparent px-3 sm:px-6 text-sm sm:text-[15px] font-bold text-primary transition hover:bg-primary/10"
           >
-            <User className="h-5 w-5" strokeWidth={2} /> Sign In
+            <User className="h-4 w-4 sm:h-5 sm:w-5" strokeWidth={2} /> <span className="hidden sm:inline">Sign In</span><span className="sm:hidden">Login</span>
           </Link>
         </div>
       </header>
@@ -376,25 +376,25 @@ function Index() {
       <section className="relative overflow-hidden">
         <div className="mx-auto grid max-w-[1536px] grid-cols-1 gap-8 px-6 pb-16 pt-6 lg:grid-cols-[1fr_1.05fr]">
           <div className="relative z-10">
-            <h1 className="font-display text-7xl font-black leading-[0.95] tracking-tight sm:text-8xl gsap-hero-title">
+            <h1 className="font-display text-6xl font-black leading-[0.9] tracking-tight sm:text-7xl lg:text-8xl gsap-hero-title">
               YOUR VIRTUAL
-              <br /> MECHANIC.
+              <br className="hidden sm:block" /> MECHANIC.
               <br /> REAL ANSWERS. <span className="text-primary">FAST.</span>
             </h1>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground gsap-hero-text">
+            <p className="mt-4 sm:mt-6 max-w-xl text-base sm:text-lg leading-relaxed text-muted-foreground gsap-hero-text">
               Search fault codes, repair guides, service specifications and real-world mechanical answers for heavy equipment and engines.
             </p>
 
-            <div className="mt-8 flex max-w-xl items-center rounded-xl border border-border bg-[#161616] p-1.5 shadow-xl gsap-hero-text">
-              <div className="flex flex-1 items-center gap-3 px-4 h-[52px]">
-                <Search className="h-[22px] w-[22px] text-muted-foreground" strokeWidth={1.5} />
+            <div className="mt-6 sm:mt-8 flex w-full max-w-xl items-center rounded-xl border border-border bg-[#161616] p-1.5 shadow-xl gsap-hero-text">
+              <div className="flex flex-1 items-center gap-2 sm:gap-3 px-3 sm:px-4 h-[44px] sm:h-[52px]">
+                <Search className="h-4 w-4 sm:h-[22px] sm:w-[22px] text-muted-foreground shrink-0" strokeWidth={1.5} />
                 <input
                   type="text"
-                  placeholder="Search fault codes, machines, symptoms..."
-                  className="h-full w-full bg-transparent text-[15px] text-foreground placeholder:text-muted-foreground focus:outline-none"
+                  placeholder="Search fault codes..."
+                  className="h-full w-full bg-transparent text-sm sm:text-[15px] text-foreground placeholder:text-muted-foreground focus:outline-none"
                 />
               </div>
-              <button className="h-[52px] rounded-lg bg-primary px-8 text-[15px] font-bold text-black transition-transform hover:scale-105 active:scale-95">
+              <button className="h-[44px] sm:h-[52px] rounded-lg bg-primary px-4 sm:px-8 text-sm sm:text-[15px] font-bold text-black transition-transform hover:scale-105 active:scale-95 whitespace-nowrap">
                 Search
               </button>
             </div>
@@ -475,12 +475,12 @@ function Index() {
         </div>
       </section>
 
-      <section className="mx-auto mt-12 max-w-[1536px] px-6 gsap-manufacturer">
-        <div className="rounded-xl border border-border bg-card p-8">
-          <div className="mb-6 flex items-center justify-between">
-            <h2 className="font-display text-2xl font-bold tracking-wide">BROWSE BY MANUFACTURER</h2>
-            <a href="#" className="inline-flex items-center gap-1 text-base font-semibold text-primary">
-              View all manufacturers <ArrowRight className="h-5 w-5" />
+      <section className="mx-auto mt-12 max-w-[1536px] px-4 sm:px-6 gsap-manufacturer">
+        <div className="rounded-xl border border-border bg-card p-5 sm:p-8">
+          <div className="mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+            <h2 className="font-display text-xl sm:text-2xl font-bold tracking-wide">BROWSE BY MANUFACTURER</h2>
+            <a href="#" className="inline-flex items-center gap-1 text-sm sm:text-base font-semibold text-primary">
+              View all manufacturers <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5" />
             </a>
           </div>
           <div className="grid grid-cols-3 gap-4 sm:grid-cols-5 lg:grid-cols-9">
