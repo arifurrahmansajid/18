@@ -4,6 +4,7 @@ type Theme = "dark" | "light";
 
 export function useTheme() {
   const [theme, setTheme] = useState<Theme>(() => {
+    if (typeof window === "undefined") return "dark";
     // Check localStorage first
     const stored = localStorage.getItem("remech-theme") as Theme | null;
     if (stored) return stored;
