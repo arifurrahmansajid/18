@@ -48,29 +48,24 @@ import deutzLogo from "@/assets/logos/deutz.svg";
 import yanmarLogo from "@/assets/logos/yanmar.svg";
 
 function EngineIcon(props: React.SVGProps<SVGSVGElement>) {
+  // Scale the stroke width appropriately from the 24px viewBox to 64px viewBox
+  const strokeWidth = props.strokeWidth ? Number(props.strokeWidth) * (64 / 24) : 4;
+
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
+      viewBox="0 0 64 64"
       fill="none"
       stroke="currentColor"
-      strokeWidth={props.strokeWidth || 2}
+      strokeWidth={strokeWidth}
       strokeLinecap="round"
       strokeLinejoin="round"
       {...props}
     >
-      <path d="M15 6V4a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v2" />
-      <path d="M4 10h1.5" />
-      <path d="M18.5 10H20" />
-      <path d="M4 14h1.5" />
-      <path d="M18.5 14H20" />
-      <rect x="5.5" y="8" width="13" height="8" rx="1.5" />
-      <path d="M8 16v3" />
-      <path d="M12 16v3" />
-      <path d="M16 16v3" />
-      <path d="M10 19h4" />
-      <path d="M9 11l2 2" />
-      <path d="M13 13l2-2" />
+      <path d="M22 18 L42 18 L42 26 L52 26 L56 32 L56 46 L48 46 L48 42 L42 42 L42 46 L26 46 L20 38 L16 38 L16 26 L22 26 Z" />
+      <path d="M28 10 L36 10 M32 10 L32 18" />
+      <path d="M10 24 L10 40 M10 28 L16 28 M10 36 L16 36" />
+      <path d="M34 24 L26 35 L32 35 L28 45 L38 33 L32 33 Z" fill="currentColor" stroke="none" />
     </svg>
   );
 }
