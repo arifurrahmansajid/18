@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, Fragment } from "react";
 import { useTheme } from "@/hooks/useTheme";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import gsap from "gsap";
@@ -38,6 +38,14 @@ import videoDpf from "@/assets/video-dpf.jpg";
 import videoHydrema from "@/assets/video-hydrema.jpg";
 import videoCat from "@/assets/video-cat.jpg";
 import logoImg from "@/assets/323refef@2x.png";
+import cumminsLogo from "@/assets/logos/cummins.svg";
+import catLogo from "@/assets/logos/cat.svg";
+import kubotaLogo from "@/assets/logos/kubota.svg";
+import volvoLogo from "@/assets/logos/volvo.svg";
+import jcbLogo from "@/assets/logos/jcb.svg";
+import perkinsLogo from "@/assets/logos/perkins.svg";
+import deutzLogo from "@/assets/logos/deutz.svg";
+import yanmarLogo from "@/assets/logos/yanmar.svg";
 
 function EngineIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
@@ -51,14 +59,18 @@ function EngineIcon(props: React.SVGProps<SVGSVGElement>) {
       strokeLinejoin="round"
       {...props}
     >
-      <path d="M7 10h10v6H7z" />
-      <path d="M10 10V7h4v3" />
-      <path d="M7 12H4v2h3" />
-      <path d="M17 12h3v2h-3" />
-      <path d="M9 16v3" />
-      <path d="M15 16v3" />
-      <path d="M12 10v6" />
-      <text x="12" y="14" fontSize="4.5" fontWeight="bold" textAnchor="middle" fill="currentColor" stroke="none">C|S</text>
+      <path d="M15 6V4a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v2" />
+      <path d="M4 10h1.5" />
+      <path d="M18.5 10H20" />
+      <path d="M4 14h1.5" />
+      <path d="M18.5 14H20" />
+      <rect x="5.5" y="8" width="13" height="8" rx="1.5" />
+      <path d="M8 16v3" />
+      <path d="M12 16v3" />
+      <path d="M16 16v3" />
+      <path d="M10 19h4" />
+      <path d="M9 11l2 2" />
+      <path d="M13 13l2-2" />
     </svg>
   );
 }
@@ -89,20 +101,16 @@ const manufacturers = [
   {
     name: "Cummins",
     logo: (
-      <div className="relative flex h-16 w-16 items-center justify-center text-white">
-        <svg viewBox="0 0 100 100" className="h-14 w-14" fill="#e5e5e5">
-          <path d="M 85 25 A 40 40 0 1 0 85 75 L 70 60 A 20 20 0 1 1 70 40 Z" />
-        </svg>
-        <span className="absolute top-[28px] left-[15px] -rotate-45 transform text-[7px] font-black tracking-tight text-background">Cummins</span>
+      <div className="flex h-16 w-16 items-center justify-center">
+        <img src={cumminsLogo} alt="Cummins" className="h-12 w-12 object-contain" />
       </div>
     )
   },
   {
     name: "Caterpillar",
     logo: (
-      <div className="relative flex h-16 w-16 items-center justify-center text-[28px] font-black tracking-tighter text-white">
-        CAT
-        <div className="absolute bottom-[14px] left-1/2 h-2 w-10 -translate-x-1/2 bg-[#ffcc00]" style={{ clipPath: 'polygon(0 100%, 100% 100%, 50% 0)' }} />
+      <div className="flex h-16 w-16 items-center justify-center">
+        <img src={catLogo} alt="Caterpillar" className="h-12 w-12 object-contain" />
       </div>
     )
   },
@@ -110,9 +118,7 @@ const manufacturers = [
     name: "Kubota",
     logo: (
       <div className="flex h-16 w-16 items-center justify-center">
-        <div className="flex h-9 w-14 items-center justify-center rounded-[50%] bg-[#eb5a00] text-white shadow-[inset_0_0_0_2px_hsl(var(--background))] ring-1 ring-[#eb5a00]">
-          <span className="font-serif text-2xl font-bold italic">K</span>
-        </div>
+        <img src={kubotaLogo} alt="Kubota" className="h-12 w-12 object-contain" />
       </div>
     )
   },
@@ -129,12 +135,8 @@ const manufacturers = [
   {
     name: "Volvo",
     logo: (
-      <div className="relative flex h-16 w-16 items-center justify-center">
-        <div className="h-12 w-12 rounded-full border-[3px] border-[#c0c0c0]" />
-        <div className="absolute right-1 top-0 h-4 w-4 text-[#c0c0c0]">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4"><path d="M7 17L17 7M17 7H11M17 7V13" /></svg>
-        </div>
-        <div className="absolute border-y-[2px] border-[#c0c0c0] bg-[#161616] py-[1px] text-center text-[9px] font-black text-[#e5e5e5]" style={{ width: '56px' }}>VOLVO</div>
+      <div className="flex h-16 w-16 items-center justify-center">
+        <img src={volvoLogo} alt="Volvo" className="h-12 w-12 object-contain" />
       </div>
     )
   },
@@ -142,9 +144,7 @@ const manufacturers = [
     name: "JCB",
     logo: (
       <div className="flex h-16 w-16 items-center justify-center">
-        <div className="flex h-10 w-14 items-center justify-center rounded-[2px] bg-[#fca311]">
-          <span className="text-[22px] font-black tracking-tighter text-black" style={{ transform: 'skewX(-15deg)' }}>JCB</span>
-        </div>
+        <img src={jcbLogo} alt="JCB" className="h-12 w-12 object-contain" />
       </div>
     )
   },
@@ -152,34 +152,23 @@ const manufacturers = [
     name: "Perkins",
     logo: (
       <div className="flex h-16 w-16 items-center justify-center">
-        <div className="flex h-12 w-12 flex-col items-center justify-center rounded bg-[#0055a4] p-1">
-          <div className="mb-0.5 flex text-white">
-            <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="9" cy="12" r="4" /><circle cx="15" cy="12" r="4" /></svg>
-          </div>
-          <span className="tracking-tight text-[10px] font-bold text-white">Perkins</span>
-        </div>
+        <img src={perkinsLogo} alt="Perkins" className="h-12 w-12 object-contain" />
       </div>
     )
   },
   {
     name: "Deutz",
     logo: (
-      <div className="flex h-16 w-16 flex-col items-center justify-center">
-        <svg viewBox="0 0 24 24" className="h-10 w-10 text-[#d40000]" fill="currentColor">
-          <path d="M12 2L22 22H2L12 2z" fill="none" stroke="currentColor" strokeWidth="2" />
-          <path d="M12 8L16.5 17H7.5L12 8z" />
-        </svg>
-        <span className="mt-0.5 tracking-widest text-[9px] font-black text-white">DEUTZ</span>
+      <div className="flex h-16 w-16 items-center justify-center">
+        <img src={deutzLogo} alt="Deutz" className="h-12 w-12 object-contain" />
       </div>
     )
   },
   {
     name: "Yanmar",
     logo: (
-      <div className="flex h-16 w-16 items-center justify-center text-[#d40000]">
-        <svg viewBox="0 0 24 24" className="h-12 w-14" fill="none" stroke="currentColor" strokeWidth="4">
-          <path d="M2 14L12 20L22 14M2 6L12 12L22 6" />
-        </svg>
+      <div className="flex h-16 w-16 items-center justify-center">
+        <img src={yanmarLogo} alt="Yanmar" className="h-12 w-12 object-contain" />
       </div>
     )
   }
@@ -217,7 +206,7 @@ function Logo() {
 
 function Footer() {
   return (
-    <footer className="bg-card py-16 border-t border-border mt-16">
+    <footer className="dark bg-card text-foreground py-16 border-t border-border mt-16 transition-none">
       <div className="mx-auto max-w-[1536px] px-6 grid grid-cols-1 md:grid-cols-4 gap-12">
         <div className="flex flex-col gap-4">
           <Logo />
@@ -325,7 +314,7 @@ function Index() {
   }
 
   return (
-    <div ref={containerRef} className={`min-h-screen bg-background text-foreground relative ${theme}`}>
+    <div ref={containerRef} className={`min-h-screen bg-background text-foreground relative flex flex-col ${theme}`}>
       {searchOpen && (
         <div className="fixed inset-0 z-50 flex flex-col items-center bg-background/95 pt-[15vh] sm:pt-[20vh] backdrop-blur-sm px-4 sm:px-6">
           <div className="w-full max-w-3xl relative">
@@ -345,39 +334,42 @@ function Index() {
           </div>
         </div>
       )}
-      <header className="mx-auto flex max-w-[1536px] items-center justify-between px-6 py-5 gsap-header">
-        <Logo />
-        <nav className="hidden items-center gap-8 lg:flex">
-          {nav.map((item, i) => (
-            <a
-              key={item}
-              href="#"
-              className={`relative text-base font-semibold transition-colors ${i === 0 ? "text-primary" : "text-foreground/85 hover:text-primary"
-                }`}
+      <div className="dark bg-background text-foreground w-full transition-none z-40 relative shadow-sm">
+        <header className="mx-auto flex max-w-[1536px] items-center justify-between px-6 py-5 gsap-header">
+          <Logo />
+          <nav className="hidden items-center gap-8 lg:flex">
+            {nav.map((item, i) => (
+              <a
+                key={item}
+                href="#"
+                className={`relative text-base font-semibold transition-colors ${i === 0 ? "text-primary" : "text-foreground/85 hover:text-primary"
+                  }`}
+              >
+                {item}
+                {i === 0 && <span className="absolute -bottom-2 left-0 h-0.5 w-full bg-primary" />}
+              </a>
+            ))}
+          </nav>
+          <div className="flex items-center gap-2 sm:gap-5">
+            <button
+              onClick={() => setSearchOpen(true)}
+              className="flex h-9 w-9 sm:h-11 sm:w-11 items-center justify-center rounded-full border border-border/80 bg-background text-muted-foreground transition hover:border-primary hover:text-primary"
             >
-              {item}
-              {i === 0 && <span className="absolute -bottom-2 left-0 h-0.5 w-full bg-primary" />}
-            </a>
-          ))}
-        </nav>
-        <div className="flex items-center gap-2 sm:gap-5">
-          <button
-            onClick={() => setSearchOpen(true)}
-            className="flex h-9 w-9 sm:h-11 sm:w-11 items-center justify-center rounded-full border border-border/80 bg-background text-muted-foreground transition hover:border-primary hover:text-primary"
-          >
-            <Search className="h-4 w-4 sm:h-5 sm:w-5" strokeWidth={1.8} />
-          </button>
-          <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
-          <Link
-            to="/login"
-            className="flex h-9 sm:h-11 items-center gap-1.5 sm:gap-2.5 rounded-xl sm:rounded-[14px] border-[1.5px] border-primary bg-transparent px-3 sm:px-6 text-sm sm:text-[15px] font-bold text-primary transition hover:bg-primary/10"
-          >
-            <User className="h-4 w-4 sm:h-5 sm:w-5" strokeWidth={2} /> <span className="hidden sm:inline">Sign In</span><span className="sm:hidden">Login</span>
-          </Link>
-        </div>
-      </header>
+              <Search className="h-4 w-4 sm:h-5 sm:w-5" strokeWidth={1.8} />
+            </button>
+            <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
+            <Link
+              to="/login"
+              className="flex h-9 sm:h-11 items-center gap-1.5 sm:gap-2.5 rounded-xl sm:rounded-[14px] border-[1.5px] border-primary bg-transparent px-3 sm:px-6 text-sm sm:text-[15px] font-bold text-primary transition hover:bg-primary/10"
+            >
+              <User className="h-4 w-4 sm:h-5 sm:w-5" strokeWidth={2} /> <span className="hidden sm:inline">Sign In</span><span className="sm:hidden">Login</span>
+            </Link>
+          </div>
+        </header>
+      </div>
 
-      <section className="relative overflow-hidden">
+      <main className="flex-1 w-full flex flex-col">
+        <section className="relative overflow-hidden">
         <div className="mx-auto grid max-w-[1536px] grid-cols-1 gap-8 px-6 pb-16 pt-6 lg:grid-cols-[1fr_1.05fr]">
           <div className="relative z-10">
             <h1 className="font-display text-6xl font-black leading-[0.9] tracking-tight sm:text-7xl lg:text-8xl gsap-hero-title">
@@ -426,13 +418,13 @@ function Index() {
               height={1024}
               className="h-full max-h-[640px] w-full rounded-xl object-cover gsap-hero-img"
             />
-            <div className="absolute right-[5%] top-[12%] sm:right-[15%] max-w-[280px] rounded-xl border-[1.5px] border-primary bg-[#111111]/95 p-5 shadow-2xl backdrop-blur gsap-hero-bubble hidden md:block">
+            <div className="absolute left-[5%] top-[10%] sm:left-[20%] max-w-[280px] rounded-xl border-[1.5px] border-primary bg-[#111111]/95 p-5 shadow-2xl backdrop-blur gsap-hero-bubble hidden md:block">
               <div className="mb-1 text-[15px] font-bold text-primary">Hi, I'm ReMech.</div>
               <p className="text-[14px] leading-relaxed text-white">
                 Let's diagnose Code 559 together. I'll walk you through each step.
               </p>
               {/* Pointing tail */}
-              <div className="absolute -bottom-[8px] -left-[8px] h-6 w-6 rotate-[25deg] skew-x-12 border-b-[1.5px] border-l-[1.5px] border-primary bg-[#111111]" style={{ clipPath: 'polygon(0 0, 0% 100%, 100% 100%)' }} />
+              <div className="absolute -bottom-[8px] right-[24px] h-6 w-6 rotate-[45deg] border-b-[1.5px] border-r-[1.5px] border-primary bg-[#111111]" />
             </div>
           </div>
         </div>
@@ -460,21 +452,23 @@ function Index() {
         </div>
       </section>
 
-      <section className="mx-auto mt-8 max-w-[1536px] px-6 gsap-stats">
-        <div className="flex flex-col justify-between gap-6 rounded-xl border border-border bg-card px-10 py-6 lg:flex-row lg:items-center">
+      <section className="mx-auto mt-8 max-w-[1536px] px-4 sm:px-6 gsap-stats">
+        <div className="flex flex-col justify-between gap-6 rounded-xl border border-border bg-card px-6 py-6 lg:flex-row lg:items-center lg:px-8 xl:px-10">
           {stats.map((s, idx) => (
-            <div key={s.label} className="flex flex-1 items-center justify-between">
-              <div className="flex items-center gap-5">
-                <s.icon className="h-12 w-12 text-primary" strokeWidth={1.5} />
-                <div className="whitespace-nowrap">
-                  <div className="text-3xl font-bold text-foreground">{s.num}</div>
-                  <div className="text-base text-muted-foreground">{s.label}</div>
+            <Fragment key={s.label}>
+              <div className="flex items-center justify-start">
+                <div className="flex items-center gap-3 sm:gap-4 xl:gap-5">
+                  <s.icon className="h-10 w-10 xl:h-12 xl:w-12 text-primary shrink-0" strokeWidth={1.5} />
+                  <div className="whitespace-nowrap">
+                    <div className="text-xl sm:text-2xl xl:text-3xl font-bold text-foreground">{s.num}</div>
+                    <div className="text-xs sm:text-sm xl:text-base text-muted-foreground">{s.label}</div>
+                  </div>
                 </div>
               </div>
               {idx < stats.length - 1 && (
-                <div className="hidden h-16 w-px bg-border/60 lg:block" />
+                <div className="hidden h-16 w-px bg-border/60 lg:block mx-1 xl:mx-2 shrink-0" />
               )}
-            </div>
+            </Fragment>
           ))}
         </div>
       </section>
@@ -616,6 +610,7 @@ function Index() {
           <Cog className="pointer-events-none absolute -right-10 top-1/2 h-72 w-72 -translate-y-1/2 text-foreground/5" />
         </div>
       </section>
+      </main>
       <Footer />
     </div>
   );
