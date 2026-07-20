@@ -418,13 +418,13 @@ function Index() {
               height={1024}
               className="h-full max-h-[640px] w-full rounded-xl object-cover gsap-hero-img"
             />
-            <div className="absolute left-[5%] top-[10%] sm:left-[20%] max-w-[280px] rounded-xl border-[1.5px] border-primary bg-[#111111]/95 p-5 shadow-2xl backdrop-blur gsap-hero-bubble hidden md:block">
+            <div className="absolute right-[5%] top-[10%] sm:right-[5%] max-w-[280px] rounded-xl border-[1.5px] border-primary bg-[#111111]/95 p-5 shadow-2xl backdrop-blur gsap-hero-bubble hidden md:block">
               <div className="mb-1 text-[15px] font-bold text-primary">Hi, I'm ReMech.</div>
               <p className="text-[14px] leading-relaxed text-white">
                 Let's diagnose Code 559 together. I'll walk you through each step.
               </p>
               {/* Pointing tail */}
-              <div className="absolute -bottom-[8px] right-[24px] h-6 w-6 rotate-[45deg] border-b-[1.5px] border-r-[1.5px] border-primary bg-[#111111]" />
+              <div className="absolute -bottom-[8px] left-[24px] h-6 w-6 -rotate-[45deg] border-b-[1.5px] border-l-[1.5px] border-primary bg-[#111111]" />
             </div>
           </div>
         </div>
