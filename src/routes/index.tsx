@@ -39,36 +39,25 @@ import videoDpf from "@/assets/video-dpf.jpg";
 import videoHydrema from "@/assets/video-hydrema.jpg";
 import videoCat from "@/assets/video-cat.jpg";
 import logoImg from "@/assets/323refef@2x.png";
-import cumminsLogo from "@/assets/logos/cummins.svg";
-import catLogo from "@/assets/logos/cat.svg";
-import kubotaLogo from "@/assets/logos/kubota.svg";
-import volvoLogo from "@/assets/logos/volvo.svg";
-import jcbLogo from "@/assets/logos/jcb.svg";
-import perkinsLogo from "@/assets/logos/perkins.svg";
-import deutzLogo from "@/assets/logos/deutz.svg";
-import yanmarLogo from "@/assets/logos/yanmar.svg";
+import faultIconImg from "@/assets/EngineFaultTransFixed.png";
 
-function EngineIcon(props: React.SVGProps<SVGSVGElement>) {
+function EngineIcon({ className }: React.SVGProps<SVGSVGElement>) {
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={props.strokeWidth || 2}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      {...props}
-    >
-      <path d="M7 10h10v6H7z" />
-      <path d="M10 10V7h4v3" />
-      <path d="M7 12H4v2h3" />
-      <path d="M17 12h3v2h-3" />
-      <path d="M9 16v3" />
-      <path d="M15 16v3" />
-      <path d="M12 10v6" />
-      <text x="12" y="14" fontSize="4.5" fontWeight="bold" textAnchor="middle" fill="currentColor" stroke="none">C|S</text>
-    </svg>
+    <div 
+      className={className} 
+      style={{
+        WebkitMaskImage: `url(${faultIconImg})`,
+        WebkitMaskSize: 'contain',
+        WebkitMaskRepeat: 'no-repeat',
+        WebkitMaskPosition: 'center',
+        backgroundColor: 'currentColor',
+        maskImage: `url(${faultIconImg})`,
+        maskSize: 'contain',
+        maskRepeat: 'no-repeat',
+        maskPosition: 'center',
+        transform: 'scale(1.6)'
+      }}
+    />
   );
 }
 
@@ -98,8 +87,11 @@ const manufacturers = [
   {
     name: "Cummins",
     logo: (
-      <div className="flex h-16 w-16 items-center justify-center">
-        <img src={cumminsLogo} alt="Cummins" className="h-12 w-12 object-contain" />
+      <div className="relative flex h-16 w-16 items-center justify-center text-background">
+        <svg viewBox="0 0 100 100" className="h-14 w-14 dark:fill-white fill-black">
+          <path d="M 85 25 A 40 40 0 1 0 85 75 L 70 60 A 20 20 0 1 1 70 40 Z" />
+        </svg>
+        <span className="absolute top-[28px] left-[15px] -rotate-45 transform text-[7px] font-black tracking-tight">Cummins</span>
       </div>
     )
   },
@@ -107,7 +99,7 @@ const manufacturers = [
     name: "Caterpillar",
     logo: (
       <div className="flex h-16 w-16 items-center justify-center">
-        <img src={catLogo} alt="Caterpillar" className="h-12 w-12 object-contain" />
+        <div className="font-sans text-[20px] font-black tracking-widest text-[#ffcc00] flex items-center">CAT<div className="w-0 h-0 border-l-[6px] border-l-transparent border-b-[10px] border-b-[#ffcc00] border-r-[6px] border-r-transparent ml-0.5 mb-1 -skew-x-12"></div></div>
       </div>
     )
   },
@@ -115,7 +107,19 @@ const manufacturers = [
     name: "Kubota",
     logo: (
       <div className="flex h-16 w-16 items-center justify-center">
-        <img src={kubotaLogo} alt="Kubota" className="h-12 w-12 object-contain" />
+        <div className="flex h-9 w-14 items-center justify-center rounded-[50%] bg-[#eb5a00] text-white shadow-[inset_0_0_0_2px_hsl(var(--background))] ring-1 ring-[#eb5a00]">
+          <span className="font-serif text-2xl font-bold italic">K</span>
+        </div>
+      </div>
+    )
+  },
+  {
+    name: "Hydrema",
+    logo: (
+      <div className="flex h-16 w-16 items-center justify-center">
+        <div className="font-serif text-[12.5px] font-black tracking-wider text-[#ffcc00]">
+          HYDREMA
+        </div>
       </div>
     )
   },
@@ -123,39 +127,47 @@ const manufacturers = [
     name: "Volvo",
     logo: (
       <div className="flex h-16 w-16 items-center justify-center">
-        <img src={volvoLogo} alt="Volvo" className="h-12 w-12 object-contain" />
+        <svg viewBox="0 0 100 100" className="h-11 w-11 dark:text-white text-black fill-current">
+          <circle cx="45" cy="55" r="35" stroke="currentColor" strokeWidth="8" fill="none" />
+          <line x1="70" y1="30" x2="95" y2="5" stroke="currentColor" strokeWidth="8" strokeLinecap="square" />
+          <polyline points="70,5 95,5 95,30" stroke="currentColor" strokeWidth="8" strokeLinecap="square" strokeLinejoin="miter" fill="none" />
+          <rect x="10" y="45" width="70" height="20" fill="currentColor" />
+          <text x="45" y="60" fill="white" className="dark:fill-[#111]" fontSize="15" fontWeight="bold" fontFamily="sans-serif" textAnchor="middle">VOLVO</text>
+        </svg>
       </div>
     )
   },
   {
-    name: "JCB",
+    name: "Hitachi",
     logo: (
       <div className="flex h-16 w-16 items-center justify-center">
-        <img src={jcbLogo} alt="JCB" className="h-12 w-12 object-contain" />
+        <div className="font-sans text-[13px] font-black tracking-wider text-[#e60012]">HITACHI</div>
       </div>
     )
   },
   {
-    name: "Perkins",
+    name: "Kobelco",
     logo: (
       <div className="flex h-16 w-16 items-center justify-center">
-        <img src={perkinsLogo} alt="Perkins" className="h-12 w-12 object-contain" />
+        <div className="font-sans text-[11px] font-black tracking-widest text-[#009e96]">KOBELCO</div>
       </div>
     )
   },
   {
-    name: "Deutz",
+    name: "Komatsu",
     logo: (
       <div className="flex h-16 w-16 items-center justify-center">
-        <img src={deutzLogo} alt="Deutz" className="h-12 w-12 object-contain" />
+        <div className="font-sans text-[13px] font-black tracking-widest text-[#1c388c]">KOMATSU</div>
       </div>
     )
   },
   {
     name: "Yanmar",
     logo: (
-      <div className="flex h-16 w-16 items-center justify-center">
-        <img src={yanmarLogo} alt="Yanmar" className="h-12 w-12 object-contain" />
+      <div className="flex h-16 w-16 items-center justify-center text-[#d40000]">
+        <svg viewBox="0 0 24 24" className="h-12 w-14" fill="none" stroke="currentColor" strokeWidth="4">
+          <path d="M2 14L12 20L22 14M2 6L12 12L22 6" />
+        </svg>
       </div>
     )
   }
@@ -193,7 +205,7 @@ function Logo() {
 
 function Footer() {
   return (
-    <footer className="bg-card py-16 border-t border-border mt-16">
+    <footer className="dark bg-card text-foreground py-16 border-t border-border mt-16 transition-none">
       <div className="mx-auto max-w-[1536px] px-6 grid grid-cols-1 md:grid-cols-4 gap-12">
         <div className="flex flex-col gap-4">
           <Logo />
@@ -419,20 +431,25 @@ function Index() {
           </div>
 
           <div className="relative">
-            <img
-              src={heroMechanic}
-              alt="ReMech virtual mechanic"
-              width={1280}
-              height={1024}
-              className="h-full max-h-[640px] w-full rounded-xl object-cover gsap-hero-img"
-            />
-            <div className="absolute right-[5%] top-[12%] sm:right-[15%] max-w-[280px] rounded-xl border-[1.5px] border-primary bg-[#111111]/95 p-5 shadow-2xl backdrop-blur gsap-hero-bubble hidden md:block">
+            <div className="h-full max-h-[640px] w-full relative rounded-xl overflow-hidden gsap-hero-img">
+              <img
+                src={heroMechanic}
+                alt="ReMech virtual mechanic"
+                width={1280}
+                height={1024}
+                className="h-full w-full object-cover"
+              />
+              {/* Dark overlay */}
+              <div className="absolute inset-0 dark:bg-black/40 pointer-events-none" />
+            </div>
+            
+            <div className="absolute right-[5%] top-[25%] sm:right-[5%] max-w-[280px] rounded-xl border-[1.5px] border-primary bg-[#111111]/95 p-5 shadow-2xl backdrop-blur gsap-hero-bubble hidden md:block">
               <div className="mb-1 text-[15px] font-bold text-primary">Hi, I'm ReMech.</div>
               <p className="text-[14px] leading-relaxed text-white">
-                Let's diagnose Code 559 together. I'll walk you through each step.
+                Lets work together on helping you with your mechanical needs.
               </p>
-              {/* Pointing tail */}
-              <div className="absolute -bottom-[8px] -left-[8px] h-6 w-6 rotate-[25deg] skew-x-12 border-b-[1.5px] border-l-[1.5px] border-primary bg-[#111111]" style={{ clipPath: 'polygon(0 0, 0% 100%, 100% 100%)' }} />
+              {/* Pointing tail (left) */}
+              <div className="absolute top-[50%] -translate-y-1/2 -left-[10px] h-5 w-5 rotate-45 border-b-[1.5px] border-l-[1.5px] border-primary bg-[#111111]" />
             </div>
           </div>
         </div>
@@ -486,10 +503,10 @@ function Index() {
             {manufacturers.map((m) => (
               <button
                 key={m.name}
-                className="group flex flex-col items-center justify-between gap-2 rounded-xl border border-border bg-transparent p-4 transition hover:border-primary/60 hover:bg-muted dark:bg-[#161616] dark:hover:bg-[#1a1a1a]"
+                className="group flex flex-col items-center justify-between gap-2 rounded-xl border border-border bg-transparent p-4 transition hover:border-primary/60 hover:bg-muted dark:bg-gray-200 dark:hover:bg-gray-300"
               >
                 {m.logo}
-                <div className="text-[13px] font-medium text-foreground/90">{m.name}</div>
+                <div className="text-[13px] font-medium text-foreground/90 dark:text-gray-900">{m.name}</div>
               </button>
             ))}
           </div>
