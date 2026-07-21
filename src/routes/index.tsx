@@ -513,7 +513,7 @@ function Index() {
       </section>
 
       <section className="mx-auto mt-12 grid max-w-[1536px] grid-cols-1 gap-6 px-6 lg:grid-cols-3">
-        <div className="rounded-xl border border-border bg-card p-8">
+        <div className="flex flex-col rounded-xl border border-border bg-card p-8">
           <div className="mb-5 flex items-center justify-between">
             <h3 className="font-display text-xl font-bold tracking-wide">LATEST FAULT CODES</h3>
             <a href="#" className="inline-flex items-center gap-1 text-sm font-semibold text-primary">
@@ -536,12 +536,14 @@ function Index() {
               </li>
             ))}
           </ul>
-          <button className="mt-6 w-full rounded-lg border-2 border-primary/80 py-3 text-base font-semibold text-primary hover:bg-primary hover:text-primary-foreground">
-            View all fault codes
-          </button>
+          <div className="mt-auto pt-6">
+            <button className="w-full rounded-lg border-2 border-primary/80 py-3 text-base font-semibold text-primary hover:bg-primary hover:text-primary-foreground">
+              View all fault codes
+            </button>
+          </div>
         </div>
 
-        <div className="rounded-xl border border-border bg-card p-8">
+        <div className="flex flex-col rounded-xl border border-border bg-card p-8">
           <div className="mb-5 flex items-center justify-between">
             <h3 className="font-display text-xl font-bold tracking-wide">POPULAR REPAIR GUIDES</h3>
             <a href="#" className="inline-flex items-center gap-1 text-sm font-semibold text-primary">
@@ -561,12 +563,14 @@ function Index() {
               </li>
             ))}
           </ul>
-          <button className="mt-6 w-full rounded-lg border-2 border-primary/80 py-3 text-base font-semibold text-primary hover:bg-primary hover:text-primary-foreground">
-            View all repair guides
-          </button>
+          <div className="mt-auto pt-6">
+            <button className="w-full rounded-lg border-2 border-primary/80 py-3 text-base font-semibold text-primary hover:bg-primary hover:text-primary-foreground">
+              View all repair guides
+            </button>
+          </div>
         </div>
 
-        <div className="rounded-xl border border-border bg-card p-8">
+        <div className="flex flex-col rounded-xl border border-border bg-card p-8">
           <div className="mb-5 flex items-center justify-between">
             <h3 className="font-display text-xl font-bold tracking-wide">LATEST TRAINING VIDEOS</h3>
             <a href="#" className="inline-flex items-center gap-1 text-sm font-semibold text-primary">
@@ -592,9 +596,11 @@ function Index() {
               </li>
             ))}
           </ul>
-          <button className="mt-6 w-full rounded-lg border-2 border-primary/80 py-3 text-base font-semibold text-primary hover:bg-primary hover:text-primary-foreground">
-            View all videos
-          </button>
+          <div className="mt-auto pt-6">
+            <button className="w-full rounded-lg border-2 border-primary/80 py-3 text-base font-semibold text-primary hover:bg-primary hover:text-primary-foreground">
+              View all videos
+            </button>
+          </div>
         </div>
       </section>
 
