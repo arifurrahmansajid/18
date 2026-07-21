@@ -79,7 +79,7 @@ const categories = [
   { icon: EngineIcon, title: "FAULT CODES", desc: "Find and diagnose engine and machine fault codes by manufacturer and system.", cta: "Browse all" },
   { icon: Wrench, title: "REPAIR GUIDES", desc: "Step-by-step repair procedures with photos, tests and advice.", cta: "Browse all" },
   { icon: ClipboardList, title: "SERVICE SPECS", desc: "Specifications, torques, capacities, fluids and service data.", cta: "Browse all" },
-  { icon: MessageCircleMore, title: "ASK REMECH", desc: "Ask ReMech your mechanical questions and get expert answers instantly.", cta: "Ask Now", badge: "NEW" },
+  { icon: ListChecks, title: "MAINTENANCE", desc: "Keep your equipment running with comprehensive maintenance schedules and procedures.", cta: "Browse all" },
 ];
 
 const stats = [
@@ -103,7 +103,7 @@ const manufacturers = [
     name: "Caterpillar",
     logo: (
       <div className="flex h-16 w-16 items-center justify-center">
-        <div className="font-sans text-[20px] font-black tracking-widest text-[#ffcc00] flex items-center">CAT<div className="w-0 h-0 border-l-[6px] border-l-transparent border-b-[10px] border-b-[#ffcc00] border-r-[6px] border-r-transparent ml-0.5 mb-1 -skew-x-12"></div></div>
+        <img src={catLogo} alt="Caterpillar" className="h-12 w-12 object-contain" />
       </div>
     )
   },
@@ -116,50 +116,34 @@ const manufacturers = [
     )
   },
   {
-    name: "Hydrema",
-    logo: (
-      <div className="flex h-16 w-16 items-center justify-center">
-        <div className="font-serif text-[12.5px] font-black tracking-wider text-[#ffcc00]">
-          HYDREMA
-        </div>
-      </div>
-    )
-  },
-  {
     name: "Volvo",
     logo: (
       <div className="flex h-16 w-16 items-center justify-center">
-        <svg viewBox="0 0 100 100" className="h-11 w-11 text-foreground fill-current">
-          <circle cx="45" cy="55" r="35" stroke="currentColor" strokeWidth="8" fill="none" />
-          <line x1="70" y1="30" x2="95" y2="5" stroke="currentColor" strokeWidth="8" strokeLinecap="square" />
-          <polyline points="70,5 95,5 95,30" stroke="currentColor" strokeWidth="8" strokeLinecap="square" strokeLinejoin="miter" fill="none" />
-          <rect x="10" y="45" width="70" height="20" fill="currentColor" />
-          <text x="45" y="60" fill="white" className="dark:fill-[#111]" fontSize="15" fontWeight="bold" fontFamily="sans-serif" textAnchor="middle">VOLVO</text>
-        </svg>
+        <img src={volvoLogo} alt="Volvo" className="h-12 w-12 object-contain" />
       </div>
     )
   },
   {
-    name: "Hitachi",
+    name: "JCB",
     logo: (
       <div className="flex h-16 w-16 items-center justify-center">
-        <div className="font-sans text-[13px] font-black tracking-wider text-[#e60012]">HITACHI</div>
+        <img src={jcbLogo} alt="JCB" className="h-12 w-12 object-contain" />
       </div>
     )
   },
   {
-    name: "Kobelco",
+    name: "Perkins",
     logo: (
       <div className="flex h-16 w-16 items-center justify-center">
-        <div className="font-sans text-[11px] font-black tracking-widest text-[#009e96]">KOBELCO</div>
+        <img src={perkinsLogo} alt="Perkins" className="h-12 w-12 object-contain" />
       </div>
     )
   },
   {
-    name: "Komatsu",
+    name: "Deutz",
     logo: (
       <div className="flex h-16 w-16 items-center justify-center">
-        <div className="font-sans text-[13px] font-black tracking-widest text-[#1c388c]">KOMATSU</div>
+        <img src={deutzLogo} alt="Deutz" className="h-12 w-12 object-contain" />
       </div>
     )
   },
@@ -334,7 +318,7 @@ function Index() {
           </div>
         </div>
       )}
-      <div className="dark bg-background text-foreground w-full transition-none z-40 relative shadow-sm">
+      <div className="dark bg-background text-foreground w-full transition-none z-40 sticky top-0 shadow-sm">
         <header className="mx-auto flex max-w-[1536px] items-center justify-between px-6 py-5 gsap-header">
           <Logo />
           <nav className="hidden items-center gap-8 lg:flex">
@@ -462,11 +446,6 @@ function Index() {
               <c.icon className="h-20 w-20 text-primary" strokeWidth={1.8} />
               <h3 className="mt-5 flex items-center justify-center gap-2 font-display text-2xl font-bold tracking-wide">
                 {c.title}
-                {c.badge && (
-                  <span className="rounded border border-primary/50 bg-transparent px-1.5 py-0.5 text-[10px] font-bold text-primary">
-                    {c.badge}
-                  </span>
-                )}
               </h3>
               <p className="mt-3 text-base leading-relaxed text-muted-foreground">{c.desc}</p>
               <a href="#" className="mt-auto pt-5 inline-flex items-center gap-1 text-base font-semibold text-primary">
