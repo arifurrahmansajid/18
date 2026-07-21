@@ -40,6 +40,11 @@ import videoHydrema from "@/assets/video-hydrema.jpg";
 import videoCat from "@/assets/video-cat.jpg";
 import logoImg from "@/assets/323refef@2x.png";
 import faultIconImg from "@/assets/EngineFaultTransFixed.png";
+import catNewLogo from "@/assets/new/CAT-logo.png";
+import hitachiNewLogo from "@/assets/118ead8238444012afe6f9d107ede865.png";
+import kobelcoNewLogo from "@/assets/2a7b69a6f90d49b881c12245ced89b9e.png";
+import komatsuNewLogo from "@/assets/965aeac20d4b4cc3bd18ef1bdef28ef0.png";
+import volvoNewLogo from "@/assets/6f460e12ed314d31abc5119002fca5e1.png";
 
 function EngineIcon({ className }: React.SVGProps<SVGSVGElement>) {
   return (
@@ -99,7 +104,7 @@ const manufacturers = [
     name: "Caterpillar",
     logo: (
       <div className="flex h-16 w-16 items-center justify-center">
-        <div className="font-sans text-[20px] font-black tracking-widest text-[#ffcc00] flex items-center">CAT<div className="w-0 h-0 border-l-[6px] border-l-transparent border-b-[10px] border-b-[#ffcc00] border-r-[6px] border-r-transparent ml-0.5 mb-1 -skew-x-12"></div></div>
+        <img src={catNewLogo} alt="Caterpillar" className="h-12 w-12 object-contain" />
       </div>
     )
   },
@@ -127,13 +132,7 @@ const manufacturers = [
     name: "Volvo",
     logo: (
       <div className="flex h-16 w-16 items-center justify-center">
-        <svg viewBox="0 0 100 100" className="h-11 w-11 dark:text-white text-black fill-current">
-          <circle cx="45" cy="55" r="35" stroke="currentColor" strokeWidth="8" fill="none" />
-          <line x1="70" y1="30" x2="95" y2="5" stroke="currentColor" strokeWidth="8" strokeLinecap="square" />
-          <polyline points="70,5 95,5 95,30" stroke="currentColor" strokeWidth="8" strokeLinecap="square" strokeLinejoin="miter" fill="none" />
-          <rect x="10" y="45" width="70" height="20" fill="currentColor" />
-          <text x="45" y="60" fill="white" className="dark:fill-[#111]" fontSize="15" fontWeight="bold" fontFamily="sans-serif" textAnchor="middle">VOLVO</text>
-        </svg>
+        <img src={volvoNewLogo} alt="Volvo" className="h-12 w-12 object-contain rounded-md" />
       </div>
     )
   },
@@ -141,7 +140,7 @@ const manufacturers = [
     name: "Hitachi",
     logo: (
       <div className="flex h-16 w-16 items-center justify-center">
-        <div className="font-sans text-[13px] font-black tracking-wider text-[#e60012]">HITACHI</div>
+        <img src={hitachiNewLogo} alt="Hitachi" className="h-full w-full object-contain scale-[1.4]" />
       </div>
     )
   },
@@ -149,7 +148,7 @@ const manufacturers = [
     name: "Kobelco",
     logo: (
       <div className="flex h-16 w-16 items-center justify-center">
-        <div className="font-sans text-[11px] font-black tracking-widest text-[#009e96]">KOBELCO</div>
+        <img src={kobelcoNewLogo} alt="Kobelco" className="h-full w-full object-contain scale-[1.4]" />
       </div>
     )
   },
@@ -157,7 +156,7 @@ const manufacturers = [
     name: "Komatsu",
     logo: (
       <div className="flex h-16 w-16 items-center justify-center">
-        <div className="font-sans text-[13px] font-black tracking-widest text-[#1c388c]">KOMATSU</div>
+        <img src={komatsuNewLogo} alt="Komatsu" className="h-full w-full object-contain scale-[1.4]" />
       </div>
     )
   },
