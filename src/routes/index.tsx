@@ -108,6 +108,7 @@ const manufacturers = [
       </div>
     )
   },
+  /*
   {
     name: "Kubota",
     logo: (
@@ -128,6 +129,7 @@ const manufacturers = [
       </div>
     )
   },
+  */
   {
     name: "Volvo",
     logo: (
