@@ -440,7 +440,7 @@ function Index() {
                 className="h-full w-full object-cover"
               />
               {/* Dark overlay */}
-              <div className="absolute inset-0 bg-black/40 pointer-events-none" />
+              <div className="absolute inset-0 dark:bg-black/40 pointer-events-none" />
             </div>
             
             <div className="absolute right-[5%] top-[25%] sm:right-[5%] max-w-[280px] rounded-xl border-[1.5px] border-primary bg-[#111111]/95 p-5 shadow-2xl backdrop-blur gsap-hero-bubble hidden md:block">
