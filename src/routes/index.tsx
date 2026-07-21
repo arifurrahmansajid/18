@@ -25,7 +25,8 @@ import {
   Youtube,
   Mail,
   MapPin,
-  Phone
+  Phone,
+  Menu
 } from "lucide-react";
 import heroMechanic from "@/assets/hero-mechanic.jpg";
 import mechanicSmall from "@/assets/mechanic-small.jpg";
@@ -48,24 +49,21 @@ import deutzLogo from "@/assets/logos/deutz.svg";
 import yanmarLogo from "@/assets/logos/yanmar.svg";
 
 function EngineIcon(props: React.SVGProps<SVGSVGElement>) {
-  // Scale the stroke width appropriately from the 24px viewBox to 64px viewBox
-  const strokeWidth = props.strokeWidth ? Number(props.strokeWidth) * (64 / 24) : 4;
-
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 64 64"
+      viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth={strokeWidth}
+      strokeWidth={props.strokeWidth || 2}
       strokeLinecap="round"
       strokeLinejoin="round"
       {...props}
     >
-      <path d="M22 18 L42 18 L42 26 L52 26 L56 32 L56 46 L48 46 L48 42 L42 42 L42 46 L26 46 L20 38 L16 38 L16 26 L22 26 Z" />
-      <path d="M28 10 L36 10 M32 10 L32 18" />
-      <path d="M10 24 L10 40 M10 28 L16 28 M10 36 L16 36" />
-      <path d="M34 24 L26 35 L32 35 L28 45 L38 33 L32 33 Z" fill="currentColor" stroke="none" />
+      <path d="M8.25 6.75 L15.75 6.75 L15.75 9.75 L19.5 9.75 L21 12 L21 17.25 L18 17.25 L18 15.75 L15.75 15.75 L15.75 17.25 L9.75 17.25 L7.5 14.25 L6 14.25 L6 9.75 L8.25 9.75 Z" />
+      <path d="M10.5 3.75 L13.5 3.75 M12 3.75 L12 6.75" />
+      <path d="M3.75 9 L3.75 15 M3.75 10.5 L6 10.5 M3.75 13.5 L6 13.5" />
+      <path d="M12.75 9 L9.75 13.125 L12 13.125 L10.5 16.875 L14.25 12.375 L12 12.375 Z" fill="currentColor" stroke="none" />
     </svg>
   );
 }
@@ -105,7 +103,7 @@ const manufacturers = [
     name: "Caterpillar",
     logo: (
       <div className="flex h-16 w-16 items-center justify-center">
-        <img src={catLogo} alt="Caterpillar" className="h-12 w-12 object-contain" />
+        <div className="font-sans text-[20px] font-black tracking-widest text-[#ffcc00] flex items-center">CAT<div className="w-0 h-0 border-l-[6px] border-l-transparent border-b-[10px] border-b-[#ffcc00] border-r-[6px] border-r-transparent ml-0.5 mb-1 -skew-x-12"></div></div>
       </div>
     )
   },
@@ -131,31 +129,37 @@ const manufacturers = [
     name: "Volvo",
     logo: (
       <div className="flex h-16 w-16 items-center justify-center">
-        <img src={volvoLogo} alt="Volvo" className="h-12 w-12 object-contain" />
+        <svg viewBox="0 0 100 100" className="h-11 w-11 text-foreground fill-current">
+          <circle cx="45" cy="55" r="35" stroke="currentColor" strokeWidth="8" fill="none" />
+          <line x1="70" y1="30" x2="95" y2="5" stroke="currentColor" strokeWidth="8" strokeLinecap="square" />
+          <polyline points="70,5 95,5 95,30" stroke="currentColor" strokeWidth="8" strokeLinecap="square" strokeLinejoin="miter" fill="none" />
+          <rect x="10" y="45" width="70" height="20" fill="currentColor" />
+          <text x="45" y="60" fill="white" className="dark:fill-[#111]" fontSize="15" fontWeight="bold" fontFamily="sans-serif" textAnchor="middle">VOLVO</text>
+        </svg>
       </div>
     )
   },
   {
-    name: "JCB",
+    name: "Hitachi",
     logo: (
       <div className="flex h-16 w-16 items-center justify-center">
-        <img src={jcbLogo} alt="JCB" className="h-12 w-12 object-contain" />
+        <div className="font-sans text-[13px] font-black tracking-wider text-[#e60012]">HITACHI</div>
       </div>
     )
   },
   {
-    name: "Perkins",
+    name: "Kobelco",
     logo: (
       <div className="flex h-16 w-16 items-center justify-center">
-        <img src={perkinsLogo} alt="Perkins" className="h-12 w-12 object-contain" />
+        <div className="font-sans text-[11px] font-black tracking-widest text-[#009e96]">KOBELCO</div>
       </div>
     )
   },
   {
-    name: "Deutz",
+    name: "Komatsu",
     logo: (
       <div className="flex h-16 w-16 items-center justify-center">
-        <img src={deutzLogo} alt="Deutz" className="h-12 w-12 object-contain" />
+        <div className="font-sans text-[13px] font-black tracking-widest text-[#1c388c]">KOMATSU</div>
       </div>
     )
   },
@@ -274,6 +278,7 @@ function Footer() {
 function Index() {
   const { theme, toggleTheme } = useTheme();
   const [searchOpen, setSearchOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -355,12 +360,32 @@ function Index() {
             <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
             <Link
               to="/login"
-              className="flex h-9 sm:h-11 items-center gap-1.5 sm:gap-2.5 rounded-xl sm:rounded-[14px] border-[1.5px] border-primary bg-transparent px-3 sm:px-6 text-sm sm:text-[15px] font-bold text-primary transition hover:bg-primary/10"
+              className="hidden sm:flex h-9 sm:h-11 items-center gap-1.5 sm:gap-2.5 rounded-xl sm:rounded-[14px] border-[1.5px] border-primary bg-transparent px-3 sm:px-6 text-sm sm:text-[15px] font-bold text-primary transition hover:bg-primary/10"
             >
-              <User className="h-4 w-4 sm:h-5 sm:w-5" strokeWidth={2} /> <span className="hidden sm:inline">Sign In</span><span className="sm:hidden">Login</span>
+              <User className="h-4 w-4 sm:h-5 sm:w-5" strokeWidth={2} /> <span className="hidden sm:inline">Sign In</span>
             </Link>
+            <button
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="lg:hidden flex h-9 w-9 sm:h-11 sm:w-11 items-center justify-center rounded-full border border-border/80 bg-background text-muted-foreground transition hover:border-primary hover:text-primary"
+            >
+              <Menu className="h-5 w-5 sm:h-6 sm:w-6" strokeWidth={1.8} />
+            </button>
           </div>
         </header>
+        {mobileMenuOpen && (
+          <div className="lg:hidden border-t border-border bg-background px-6 py-4 absolute w-full left-0 top-full shadow-xl">
+            <nav className="flex flex-col gap-4">
+              {nav.map((item) => (
+                <a key={item} href="#" onClick={() => setMobileMenuOpen(false)} className="text-base font-semibold text-foreground hover:text-primary">
+                  {item}
+                </a>
+              ))}
+              <Link to="/login" onClick={() => setMobileMenuOpen(false)} className="mt-2 flex w-full items-center justify-center gap-2 rounded-xl bg-primary py-3 font-bold text-primary-foreground">
+                <User className="h-5 w-5" /> Sign In
+              </Link>
+            </nav>
+          </div>
+        )}
       </div>
 
       <main className="flex-1 w-full flex flex-col">
@@ -406,20 +431,25 @@ function Index() {
           </div>
 
           <div className="relative">
-            <img
-              src={heroMechanic}
-              alt="ReMech virtual mechanic"
-              width={1280}
-              height={1024}
-              className="h-full max-h-[640px] w-full rounded-xl object-cover gsap-hero-img"
-            />
-            <div className="absolute right-[5%] top-[10%] sm:right-[5%] max-w-[280px] rounded-xl border-[1.5px] border-primary bg-[#111111]/95 p-5 shadow-2xl backdrop-blur gsap-hero-bubble hidden md:block">
+            <div className="h-full max-h-[640px] w-full relative rounded-xl overflow-hidden gsap-hero-img">
+              <img
+                src={heroMechanic}
+                alt="ReMech virtual mechanic"
+                width={1280}
+                height={1024}
+                className="h-full w-full object-cover"
+              />
+              {/* Dark overlay */}
+              <div className="absolute inset-0 bg-black/40 pointer-events-none" />
+            </div>
+            
+            <div className="absolute right-[5%] top-[25%] sm:right-[5%] max-w-[280px] rounded-xl border-[1.5px] border-primary bg-[#111111]/95 p-5 shadow-2xl backdrop-blur gsap-hero-bubble hidden md:block">
               <div className="mb-1 text-[15px] font-bold text-primary">Hi, I'm ReMech.</div>
               <p className="text-[14px] leading-relaxed text-white">
-                Let's diagnose Code 559 together. I'll walk you through each step.
+                Lets work together on helping you with your mechanical needs.
               </p>
-              {/* Pointing tail */}
-              <div className="absolute -bottom-[8px] left-[24px] h-6 w-6 -rotate-[45deg] border-b-[1.5px] border-l-[1.5px] border-primary bg-[#111111]" />
+              {/* Pointing tail (left) */}
+              <div className="absolute top-[50%] -translate-y-1/2 -left-[10px] h-5 w-5 rotate-45 border-b-[1.5px] border-l-[1.5px] border-primary bg-[#111111]" />
             </div>
           </div>
         </div>
