@@ -510,10 +510,10 @@ function Index() {
             {manufacturers.map((m) => (
               <button
                 key={m.name}
-                className="group flex flex-col items-center justify-between gap-2 rounded-xl border border-border bg-transparent p-4 transition hover:border-primary/60 hover:bg-muted dark:bg-[#161616] dark:hover:bg-[#1a1a1a]"
+                className="group flex flex-col items-center justify-between gap-2 rounded-xl border border-border bg-transparent p-4 transition hover:border-primary/60 hover:bg-muted dark:bg-gray-200 dark:hover:bg-gray-300"
               >
                 {m.logo}
-                <div className="text-[13px] font-medium text-foreground/90">{m.name}</div>
+                <div className="text-[13px] font-medium text-foreground/90 dark:text-gray-900">{m.name}</div>
               </button>
             ))}
           </div>
