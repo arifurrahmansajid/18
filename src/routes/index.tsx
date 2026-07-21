@@ -500,7 +500,7 @@ function Index() {
               View all manufacturers <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5" />
             </a>
           </div>
-          <div className="grid grid-cols-3 gap-4 sm:grid-cols-5 lg:grid-cols-9">
+          <div className="grid grid-cols-3 gap-4 sm:grid-cols-5 lg:grid-cols-7">
             {manufacturers.map((m) => (
               <button
                 key={m.name}
