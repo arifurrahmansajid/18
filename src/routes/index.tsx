@@ -39,6 +39,14 @@ import videoDpf from "@/assets/video-dpf.jpg";
 import videoHydrema from "@/assets/video-hydrema.jpg";
 import videoCat from "@/assets/video-cat.jpg";
 import logoImg from "@/assets/323refef@2x.png";
+import cumminsLogo from "@/assets/logos/cummins.svg";
+import catLogo from "@/assets/logos/cat.svg";
+import kubotaLogo from "@/assets/logos/kubota.svg";
+import volvoLogo from "@/assets/logos/volvo.svg";
+import jcbLogo from "@/assets/logos/jcb.svg";
+import perkinsLogo from "@/assets/logos/perkins.svg";
+import deutzLogo from "@/assets/logos/deutz.svg";
+import yanmarLogo from "@/assets/logos/yanmar.svg";
 
 function EngineIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
@@ -90,11 +98,8 @@ const manufacturers = [
   {
     name: "Cummins",
     logo: (
-      <div className="relative flex h-16 w-16 items-center justify-center text-white">
-        <svg viewBox="0 0 100 100" className="h-14 w-14" fill="#e5e5e5">
-          <path d="M 85 25 A 40 40 0 1 0 85 75 L 70 60 A 20 20 0 1 1 70 40 Z" />
-        </svg>
-        <span className="absolute top-[28px] left-[15px] -rotate-45 transform text-[7px] font-black tracking-tight text-background">Cummins</span>
+      <div className="flex h-16 w-16 items-center justify-center">
+        <img src={cumminsLogo} alt="Cummins" className="h-12 w-12 object-contain" />
       </div>
     )
   },
@@ -102,7 +107,7 @@ const manufacturers = [
     name: "Caterpillar",
     logo: (
       <div className="flex h-16 w-16 items-center justify-center">
-        <div className="font-sans text-[20px] font-black tracking-widest text-[#ffcc00] flex items-center">CAT<div className="w-0 h-0 border-l-[6px] border-l-transparent border-b-[10px] border-b-[#ffcc00] border-r-[6px] border-r-transparent ml-0.5 mb-1 -skew-x-12"></div></div>
+        <img src={catLogo} alt="Caterpillar" className="h-12 w-12 object-contain" />
       </div>
     )
   },
@@ -110,9 +115,7 @@ const manufacturers = [
     name: "Kubota",
     logo: (
       <div className="flex h-16 w-16 items-center justify-center">
-        <div className="flex h-9 w-14 items-center justify-center rounded-[50%] bg-[#eb5a00] text-white shadow-[inset_0_0_0_2px_hsl(var(--background))] ring-1 ring-[#eb5a00]">
-          <span className="font-serif text-2xl font-bold italic">K</span>
-        </div>
+        <img src={kubotaLogo} alt="Kubota" className="h-12 w-12 object-contain" />
       </div>
     )
   },
@@ -120,13 +123,7 @@ const manufacturers = [
     name: "Volvo",
     logo: (
       <div className="flex h-16 w-16 items-center justify-center">
-        <svg viewBox="0 0 100 100" className="h-11 w-11 text-foreground fill-current">
-          <circle cx="45" cy="55" r="35" stroke="currentColor" strokeWidth="8" fill="none" />
-          <line x1="70" y1="30" x2="95" y2="5" stroke="currentColor" strokeWidth="8" strokeLinecap="square" />
-          <polyline points="70,5 95,5 95,30" stroke="currentColor" strokeWidth="8" strokeLinecap="square" strokeLinejoin="miter" fill="none" />
-          <rect x="10" y="45" width="70" height="20" fill="currentColor" />
-          <text x="45" y="60" fill="white" className="dark:fill-[#111]" fontSize="15" fontWeight="bold" fontFamily="sans-serif" textAnchor="middle">VOLVO</text>
-        </svg>
+        <img src={volvoLogo} alt="Volvo" className="h-12 w-12 object-contain" />
       </div>
     )
   },
@@ -134,7 +131,7 @@ const manufacturers = [
     name: "JCB",
     logo: (
       <div className="flex h-16 w-16 items-center justify-center">
-        <div className="font-sans text-[13px] font-black tracking-wider text-[#e60012]">HITACHI</div>
+        <img src={jcbLogo} alt="JCB" className="h-12 w-12 object-contain" />
       </div>
     )
   },
@@ -142,7 +139,7 @@ const manufacturers = [
     name: "Perkins",
     logo: (
       <div className="flex h-16 w-16 items-center justify-center">
-        <div className="font-sans text-[11px] font-black tracking-widest text-[#009e96]">KOBELCO</div>
+        <img src={perkinsLogo} alt="Perkins" className="h-12 w-12 object-contain" />
       </div>
     )
   },
@@ -150,17 +147,15 @@ const manufacturers = [
     name: "Deutz",
     logo: (
       <div className="flex h-16 w-16 items-center justify-center">
-        <div className="font-sans text-[13px] font-black tracking-widest text-[#1c388c]">KOMATSU</div>
+        <img src={deutzLogo} alt="Deutz" className="h-12 w-12 object-contain" />
       </div>
     )
   },
   {
     name: "Yanmar",
     logo: (
-      <div className="flex h-16 w-16 items-center justify-center text-[#d40000]">
-        <svg viewBox="0 0 24 24" className="h-12 w-14" fill="none" stroke="currentColor" strokeWidth="4">
-          <path d="M2 14L12 20L22 14M2 6L12 12L22 6" />
-        </svg>
+      <div className="flex h-16 w-16 items-center justify-center">
+        <img src={yanmarLogo} alt="Yanmar" className="h-12 w-12 object-contain" />
       </div>
     )
   }
@@ -327,7 +322,7 @@ function Index() {
           </div>
         </div>
       )}
-      <div className="dark bg-background text-foreground w-full transition-none z-40 relative shadow-sm">
+      <div className="dark bg-background text-foreground w-full transition-none z-40 sticky top-0 shadow-sm">
         <header className="mx-auto flex max-w-[1536px] items-center justify-between px-6 py-5 gsap-header">
           <Logo />
           <nav className="hidden items-center gap-8 lg:flex">
