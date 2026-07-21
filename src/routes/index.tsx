@@ -25,7 +25,8 @@ import {
   Youtube,
   Mail,
   MapPin,
-  Phone
+  Phone,
+  Menu
 } from "lucide-react";
 import heroMechanic from "@/assets/hero-mechanic.jpg";
 import mechanicSmall from "@/assets/mechanic-small.jpg";
@@ -270,6 +271,7 @@ function Footer() {
 function Index() {
   const { theme, toggleTheme } = useTheme();
   const [searchOpen, setSearchOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -614,6 +616,7 @@ function Index() {
           <Cog className="pointer-events-none absolute -right-10 top-1/2 h-72 w-72 -translate-y-1/2 text-foreground/5" />
         </div>
       </section>
+      </main>
       <Footer />
     </div>
   );
