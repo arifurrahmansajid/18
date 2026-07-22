@@ -72,91 +72,6 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const popular = ["Cummins 559", "Kubota DPF Regeneration", "Cat 120M Torque Specs", "Hydrema 922G"];
-
-const manufacturers = [
-  {
-    name: "Cummins",
-    logo: (
-      <div className="flex h-20 w-20 items-center justify-center">
-        <img src={cumminsLogo} alt="Cummins" className="h-16 w-16 object-contain" />
-      </div>
-    )
-  },
-  {
-    name: "Caterpillar",
-    logo: (
-      <div className="flex h-20 w-20 items-center justify-center">
-        <img src={catNewLogo} alt="Caterpillar" className="h-16 w-16 object-contain" />
-      </div>
-    )
-  },
-  /*
-  {
-    name: "Kubota",
-    logo: (
-      <div className="flex h-16 w-16 items-center justify-center">
-        <div className="flex h-9 w-14 items-center justify-center rounded-[50%] bg-[#eb5a00] text-white shadow-[inset_0_0_0_2px_hsl(var(--background))] ring-1 ring-[#eb5a00]">
-          <span className="font-serif text-2xl font-bold italic">K</span>
-        </div>
-      </div>
-    )
-  },
-  {
-    name: "Hydrema",
-    logo: (
-      <div className="flex h-16 w-16 items-center justify-center">
-        <div className="font-serif text-[12.5px] font-black tracking-wider text-[#ffcc00]">
-          HYDREMA
-        </div>
-      </div>
-    )
-  },
-  */
-  {
-    name: "Volvo",
-    logo: (
-      <div className="flex h-20 w-20 items-center justify-center">
-        <img src={volvoNewLogo} alt="Volvo" className="h-16 w-16 object-contain rounded-md" />
-      </div>
-    )
-  },
-  {
-    name: "Hitachi",
-    logo: (
-      <div className="flex h-16 w-16 items-center justify-center">
-        <img src={hitachiNewLogo} alt="Hitachi" className="h-full w-full object-contain scale-[1.4]" />
-      </div>
-    )
-  },
-  {
-    name: "Kobelco",
-    logo: (
-      <div className="flex h-16 w-16 items-center justify-center">
-        <img src={kobelcoNewLogo} alt="Kobelco" className="h-full w-full object-contain scale-[1.4]" />
-      </div>
-    )
-  },
-  {
-    name: "Komatsu",
-    logo: (
-      <div className="flex h-16 w-16 items-center justify-center">
-        <img src={komatsuNewLogo} alt="Komatsu" className="h-full w-full object-contain scale-[1.4]" />
-      </div>
-    )
-  },
-  {
-    name: "Yanmar",
-    logo: (
-      <div className="flex h-16 w-16 items-center justify-center text-[#d40000]">
-        <svg viewBox="0 0 24 24" className="h-12 w-14" fill="none" stroke="currentColor" strokeWidth="4">
-          <path d="M2 14L12 20L22 14M2 6L12 12L22 6" />
-        </svg>
-      </div>
-    )
-  }
-];
-
 
 function Logo() {
   return (
@@ -246,6 +161,8 @@ function Index() {
   const [isLoading, setIsLoading] = useState(true);
   const containerRef = useRef<HTMLDivElement>(null);
 
+  const popular = [t.pop_search_1, t.pop_search_2, t.pop_search_3, t.pop_search_4];
+
   const nav = [
     t.nav_home, t.nav_fault_codes, t.nav_repair_guides,
     t.nav_service_specs, t.nav_maintenance, t.nav_tips,
@@ -286,6 +203,67 @@ function Index() {
     { img: videoDpf, title: t.vid_dpf_title, time: "12:30" },
     { img: videoHydrema, title: t.vid_hydrema_title, time: "15:20" },
     { img: videoCat, title: t.vid_cat_title, time: "22:10" },
+  ];
+
+  const manufacturers = [
+    {
+      name: t.mfg_cummins,
+      logo: (
+        <div className="flex h-20 w-20 items-center justify-center">
+          <img src={cumminsLogo} alt="Cummins" className="h-16 w-16 object-contain" />
+        </div>
+      )
+    },
+    {
+      name: t.mfg_caterpillar,
+      logo: (
+        <div className="flex h-20 w-20 items-center justify-center">
+          <img src={catNewLogo} alt="Caterpillar" className="h-16 w-16 object-contain" />
+        </div>
+      )
+    },
+    {
+      name: t.mfg_volvo,
+      logo: (
+        <div className="flex h-20 w-20 items-center justify-center">
+          <img src={volvoNewLogo} alt="Volvo" className="h-16 w-16 object-contain rounded-md" />
+        </div>
+      )
+    },
+    {
+      name: t.mfg_hitachi,
+      logo: (
+        <div className="flex h-16 w-16 items-center justify-center">
+          <img src={hitachiNewLogo} alt="Hitachi" className="h-full w-full object-contain scale-[1.4]" />
+        </div>
+      )
+    },
+    {
+      name: t.mfg_kobelco,
+      logo: (
+        <div className="flex h-16 w-16 items-center justify-center">
+          <img src={kobelcoNewLogo} alt="Kobelco" className="h-full w-full object-contain scale-[1.4]" />
+        </div>
+      )
+    },
+    {
+      name: t.mfg_komatsu,
+      logo: (
+        <div className="flex h-16 w-16 items-center justify-center">
+          <img src={komatsuNewLogo} alt="Komatsu" className="h-full w-full object-contain scale-[1.4]" />
+        </div>
+      )
+    },
+    {
+      name: t.mfg_yanmar,
+      logo: (
+        <div className="flex h-16 w-16 items-center justify-center text-[#d40000]">
+          <svg viewBox="0 0 24 24" className="h-12 w-14" fill="none" stroke="currentColor" strokeWidth="4">
+            <path d="M2 14L12 20L22 14M2 6L12 12L22 6" />
+          </svg>
+        </div>
+      )
+    }
   ];
 
   useEffect(() => {
@@ -513,7 +491,7 @@ function Index() {
                 className="group flex flex-col items-center justify-between gap-2 rounded-xl border border-border bg-transparent p-4 transition hover:border-primary/60 hover:bg-muted dark:bg-gray-200 dark:hover:bg-gray-300"
               >
                 {m.logo}
-                <div className="text-[13px] font-medium text-foreground/90 dark:text-gray-900">{m.name}</div>
+                <div className="text-[13px] font-medium text-black">{m.name}</div>
               </button>
             ))}
           </div>

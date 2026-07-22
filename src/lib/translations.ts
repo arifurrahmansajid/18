@@ -51,6 +51,10 @@ export interface Translations {
   hero_search_placeholder: string;
   hero_search_btn: string;
   hero_popular: string;
+  pop_search_1: string;
+  pop_search_2: string;
+  pop_search_3: string;
+  pop_search_4: string;
   hero_bubble_name: string;
   hero_bubble_text: string;
   // Categories
@@ -73,6 +77,13 @@ export interface Translations {
   // Manufacturers
   section_manufacturers: string;
   view_all_manufacturers: string;
+  mfg_cummins: string;
+  mfg_caterpillar: string;
+  mfg_volvo: string;
+  mfg_hitachi: string;
+  mfg_kobelco: string;
+  mfg_komatsu: string;
+  mfg_yanmar: string;
   // Sections
   latest_fault_codes: string;
   popular_repair_guides: string;
@@ -156,6 +167,7 @@ export const translations: Record<Language, Translations> = {
     hero_title_line1: "YOUR VIRTUAL", hero_title_line2: "MECHANIC.", hero_title_line3: "REAL ANSWERS.", hero_title_highlight: "FAST.",
     hero_subtitle: "Search fault codes, repair guides, service specifications and real-world mechanical answers for heavy equipment and engines.",
     hero_search_placeholder: "Search fault codes...", hero_search_btn: "Search", hero_popular: "Popular searches:",
+    pop_search_1: "Cummins 559", pop_search_2: "Kubota DPF Regeneration", pop_search_3: "Cat 120M Torque Specs", pop_search_4: "Hydrema 922G",
     hero_bubble_name: "Hi, I'm ReMech.", hero_bubble_text: "Lets work together on helping you with your mechanical needs.",
     cat_fault_codes: "FAULT CODES", cat_fault_codes_desc: "Find and diagnose engine and machine fault codes by manufacturer and system.",
     cat_repair_guides: "REPAIR GUIDES", cat_repair_guides_desc: "Step-by-step repair procedures with photos, tests and advice.",
@@ -165,6 +177,8 @@ export const translations: Record<Language, Translations> = {
     stat_fault_codes: "Fault Codes", stat_repair_guides: "Repair Guides", stat_service_specs: "Service Specs",
     stat_training_videos: "Training Videos", stat_updated: "Updated Daily", stat_updated_label: "New Content Added",
     section_manufacturers: "BROWSE BY MANUFACTURER", view_all_manufacturers: "View all manufacturers",
+    mfg_cummins: "Cummins", mfg_caterpillar: "Caterpillar", mfg_volvo: "Volvo",
+    mfg_hitachi: "Hitachi", mfg_kobelco: "Kobelco", mfg_komatsu: "Komatsu", mfg_yanmar: "Yanmar",
     latest_fault_codes: "LATEST FAULT CODES", popular_repair_guides: "POPULAR REPAIR GUIDES", latest_videos: "LATEST TRAINING VIDEOS",
     view_all: "View all", view_all_fault_codes: "View all fault codes", view_all_repair_guides: "View all repair guides", view_all_videos: "View all videos",
     need_expert_help: "NEED EXPERT HELP?", cta_cant_find: "Can't find what you're looking for?",
@@ -206,6 +220,7 @@ export const translations: Record<Language, Translations> = {
     hero_title_line1: "TU MECÁNICO", hero_title_line2: "VIRTUAL.", hero_title_line3: "RESPUESTAS REALES.", hero_title_highlight: "RÁPIDO.",
     hero_subtitle: "Busca códigos de falla, guías de reparación, especificaciones de servicio y respuestas mecánicas reales para equipos pesados y motores.",
     hero_search_placeholder: "Buscar códigos de falla...", hero_search_btn: "Buscar", hero_popular: "Búsquedas populares:",
+    pop_search_1: "Cummins 559", pop_search_2: "Regeneración DPF Kubota", pop_search_3: "Cat 120M Torque", pop_search_4: "Hydrema 922G",
     hero_bubble_name: "Hola, soy ReMech.", hero_bubble_text: "Trabajemos juntos para ayudarte con tus necesidades mecánicas.",
     cat_fault_codes: "CÓDIGOS DE FALLA", cat_fault_codes_desc: "Encuentra y diagnostica códigos de falla de motores y máquinas por fabricante y sistema.",
     cat_repair_guides: "GUÍAS DE REPARACIÓN", cat_repair_guides_desc: "Procedimientos de reparación paso a paso con fotos, pruebas y asesoría.",
@@ -215,6 +230,8 @@ export const translations: Record<Language, Translations> = {
     stat_fault_codes: "Códigos de Falla", stat_repair_guides: "Guías de Reparación", stat_service_specs: "Especificaciones",
     stat_training_videos: "Videos de Capacitación", stat_updated: "Actualizado Diariamente", stat_updated_label: "Contenido Nuevo Agregado",
     section_manufacturers: "BUSCAR POR FABRICANTE", view_all_manufacturers: "Ver todos los fabricantes",
+    mfg_cummins: "Cummins", mfg_caterpillar: "Caterpillar", mfg_volvo: "Volvo",
+    mfg_hitachi: "Hitachi", mfg_kobelco: "Kobelco", mfg_komatsu: "Komatsu", mfg_yanmar: "Yanmar",
     latest_fault_codes: "ÚLTIMOS CÓDIGOS DE FALLA", popular_repair_guides: "GUÍAS DE REPARACIÓN POPULARES", latest_videos: "ÚLTIMOS VIDEOS DE CAPACITACIÓN",
     view_all: "Ver todos", view_all_fault_codes: "Ver todos los códigos de falla", view_all_repair_guides: "Ver todas las guías", view_all_videos: "Ver todos los videos",
     need_expert_help: "¿NECESITAS AYUDA EXPERTA?", cta_cant_find: "¿No encuentras lo que buscas?",
@@ -256,6 +273,7 @@ export const translations: Record<Language, Translations> = {
     hero_title_line1: "SEU MECÂNICO", hero_title_line2: "VIRTUAL.", hero_title_line3: "RESPOSTAS REAIS.", hero_title_highlight: "RÁPIDO.",
     hero_subtitle: "Pesquise códigos de falha, guias de reparo, especificações de serviço e respostas mecânicas reais para equipamentos pesados e motores.",
     hero_search_placeholder: "Buscar códigos de falha...", hero_search_btn: "Buscar", hero_popular: "Pesquisas populares:",
+    pop_search_1: "Cummins 559", pop_search_2: "Regeneração DPF Kubota", pop_search_3: "Cat 120M Torque", pop_search_4: "Hydrema 922G",
     hero_bubble_name: "Olá, eu sou o ReMech.", hero_bubble_text: "Vamos trabalhar juntos para ajudá-lo com suas necessidades mecânicas.",
     cat_fault_codes: "CÓDIGOS DE FALHA", cat_fault_codes_desc: "Encontre e diagnostique códigos de falha de motores e máquinas por fabricante e sistema.",
     cat_repair_guides: "GUIAS DE REPARO", cat_repair_guides_desc: "Procedimentos de reparo passo a passo com fotos, testes e orientações.",
@@ -265,6 +283,8 @@ export const translations: Record<Language, Translations> = {
     stat_fault_codes: "Códigos de Falha", stat_repair_guides: "Guias de Reparo", stat_service_specs: "Especificações",
     stat_training_videos: "Vídeos de Treinamento", stat_updated: "Atualizado Diariamente", stat_updated_label: "Novo Conteúdo Adicionado",
     section_manufacturers: "PESQUISAR POR FABRICANTE", view_all_manufacturers: "Ver todos os fabricantes",
+    mfg_cummins: "Cummins", mfg_caterpillar: "Caterpillar", mfg_volvo: "Volvo",
+    mfg_hitachi: "Hitachi", mfg_kobelco: "Kobelco", mfg_komatsu: "Komatsu", mfg_yanmar: "Yanmar",
     latest_fault_codes: "ÚLTIMOS CÓDIGOS DE FALHA", popular_repair_guides: "GUIAS DE REPARO POPULARES", latest_videos: "ÚLTIMOS VÍDEOS DE TREINAMENTO",
     view_all: "Ver todos", view_all_fault_codes: "Ver todos os códigos de falha", view_all_repair_guides: "Ver todos os guias", view_all_videos: "Ver todos os vídeos",
     need_expert_help: "PRECISA DE AJUDA ESPECIALIZADA?", cta_cant_find: "Não encontra o que procura?",
@@ -306,6 +326,7 @@ export const translations: Record<Language, Translations> = {
     hero_title_line1: "VOTRE MÉCANICIEN", hero_title_line2: "VIRTUEL.", hero_title_line3: "VRAIES RÉPONSES.", hero_title_highlight: "VITE.",
     hero_subtitle: "Recherchez des codes de défaut, des guides de réparation, des spécifications de service et des réponses mécaniques réelles pour les équipements lourds.",
     hero_search_placeholder: "Rechercher des codes de défaut...", hero_search_btn: "Rechercher", hero_popular: "Recherches populaires :",
+    pop_search_1: "Cummins 559", pop_search_2: "Régénération DPF Kubota", pop_search_3: "Cat 120M Couple", pop_search_4: "Hydrema 922G",
     hero_bubble_name: "Bonjour, je suis ReMech.", hero_bubble_text: "Travaillons ensemble pour vous aider avec vos besoins mécaniques.",
     cat_fault_codes: "CODES DE DÉFAUT", cat_fault_codes_desc: "Trouvez et diagnostiquez les codes de défaut des moteurs et machines par fabricant et système.",
     cat_repair_guides: "GUIDES DE RÉPARATION", cat_repair_guides_desc: "Procédures de réparation étape par étape avec photos, tests et conseils.",
@@ -315,6 +336,8 @@ export const translations: Record<Language, Translations> = {
     stat_fault_codes: "Codes de Défaut", stat_repair_guides: "Guides de Réparation", stat_service_specs: "Spécifications",
     stat_training_videos: "Vidéos de Formation", stat_updated: "Mis à Jour Quotidiennement", stat_updated_label: "Nouveau Contenu Ajouté",
     section_manufacturers: "PARCOURIR PAR FABRICANT", view_all_manufacturers: "Voir tous les fabricants",
+    mfg_cummins: "Cummins", mfg_caterpillar: "Caterpillar", mfg_volvo: "Volvo",
+    mfg_hitachi: "Hitachi", mfg_kobelco: "Kobelco", mfg_komatsu: "Komatsu", mfg_yanmar: "Yanmar",
     latest_fault_codes: "DERNIERS CODES DE DÉFAUT", popular_repair_guides: "GUIDES DE RÉPARATION POPULAIRES", latest_videos: "DERNIÈRES VIDÉOS DE FORMATION",
     view_all: "Voir tout", view_all_fault_codes: "Voir tous les codes de défaut", view_all_repair_guides: "Voir tous les guides", view_all_videos: "Voir toutes les vidéos",
     need_expert_help: "BESOIN D'AIDE EXPERTE ?", cta_cant_find: "Vous ne trouvez pas ce que vous cherchez ?",
@@ -356,6 +379,7 @@ export const translations: Record<Language, Translations> = {
     hero_title_line1: "ميكانيكيك الافتراضي", hero_title_line2: "المحترف.", hero_title_line3: "إجابات حقيقية.", hero_title_highlight: "سريع.",
     hero_subtitle: "ابحث عن رموز الأعطال وأدلة الإصلاح ومواصفات الخدمة والإجابات الميكانيكية الحقيقية للمعدات الثقيلة والمحركات.",
     hero_search_placeholder: "ابحث عن رموز الأعطال...", hero_search_btn: "بحث", hero_popular: "عمليات البحث الشائعة:",
+    pop_search_1: "Cummins 559", pop_search_2: "تجديد DPF كوبوتا", pop_search_3: "Cat 120M عزم", pop_search_4: "Hydrema 922G",
     hero_bubble_name: "مرحباً، أنا ReMech.", hero_bubble_text: "دعنا نعمل معاً لمساعدتك في احتياجاتك الميكانيكية.",
     cat_fault_codes: "رموز الأعطال", cat_fault_codes_desc: "ابحث وشخّص رموز أعطال المحركات والآلات حسب الشركة المصنعة والنظام.",
     cat_repair_guides: "أدلة الإصلاح", cat_repair_guides_desc: "إجراءات إصلاح خطوة بخطوة مع صور واختبارات ونصائح.",
@@ -364,7 +388,9 @@ export const translations: Record<Language, Translations> = {
     cat_browse_all: "تصفح الكل",
     stat_fault_codes: "رموز الأعطال", stat_repair_guides: "أدلة الإصلاح", stat_service_specs: "مواصفات الخدمة",
     stat_training_videos: "مقاطع تدريبية", stat_updated: "تحديث يومي", stat_updated_label: "محتوى جديد يُضاف",
-    section_manufacturers: "تصفح حسب الشركة المصنعة", view_all_manufacturers: "عرض جميع الشركات المصنعة",
+    section_manufacturers: "تصفح حسب الشركة المصنعة", view_all_manufacturers: "عرض جميع الشركات",
+    mfg_cummins: "كمينز", mfg_caterpillar: "كاتربيلر", mfg_volvo: "فولفو",
+    mfg_hitachi: "هيتاشي", mfg_kobelco: "كوبيلكو", mfg_komatsu: "كوماتسو", mfg_yanmar: "يانمار",
     latest_fault_codes: "أحدث رموز الأعطال", popular_repair_guides: "أدلة الإصلاح الشائعة", latest_videos: "أحدث مقاطع التدريب",
     view_all: "عرض الكل", view_all_fault_codes: "عرض جميع رموز الأعطال", view_all_repair_guides: "عرض جميع الأدلة", view_all_videos: "عرض جميع المقاطع",
     need_expert_help: "تحتاج مساعدة خبير؟", cta_cant_find: "لا تجد ما تبحث عنه؟",
@@ -406,6 +432,7 @@ export const translations: Record<Language, Translations> = {
     hero_title_line1: "आपका वर्चुअल", hero_title_line2: "मैकेनिक.", hero_title_line3: "असली जवाब.", hero_title_highlight: "तेज़.",
     hero_subtitle: "भारी उपकरण और इंजनों के लिए फॉल्ट कोड, मरम्मत गाइड, सेवा विशेषताएं और वास्तविक यांत्रिक उत्तर खोजें।",
     hero_search_placeholder: "फॉल्ट कोड खोजें...", hero_search_btn: "खोजें", hero_popular: "लोकप्रिय खोजें:",
+    pop_search_1: "Cummins 559", pop_search_2: "कुबोटा DPF रीजनरेशन", pop_search_3: "Cat 120M टॉर्क", pop_search_4: "Hydrema 922G",
     hero_bubble_name: "नमस्ते, मैं ReMech हूँ।", hero_bubble_text: "आपकी यांत्रिक ज़रूरतों में मदद करने के लिए मिलकर काम करते हैं।",
     cat_fault_codes: "फॉल्ट कोड", cat_fault_codes_desc: "निर्माता और सिस्टम के अनुसार इंजन और मशीन फॉल्ट कोड खोजें और निदान करें।",
     cat_repair_guides: "मरम्मत गाइड", cat_repair_guides_desc: "फोटो, टेस्ट और सलाह के साथ चरण-दर-चरण मरम्मत प्रक्रियाएं।",
@@ -415,6 +442,8 @@ export const translations: Record<Language, Translations> = {
     stat_fault_codes: "फॉल्ट कोड", stat_repair_guides: "मरम्मत गाइड", stat_service_specs: "सेवा विशेषताएं",
     stat_training_videos: "प्रशिक्षण वीडियो", stat_updated: "रोज़ अपडेट", stat_updated_label: "नई सामग्री जोड़ी गई",
     section_manufacturers: "निर्माता द्वारा खोजें", view_all_manufacturers: "सभी निर्माता देखें",
+    mfg_cummins: "कमिंस", mfg_caterpillar: "कैटरपिलर", mfg_volvo: "वोल्वो",
+    mfg_hitachi: "हिताची", mfg_kobelco: "कोबेल्को", mfg_komatsu: "कोमात्सु", mfg_yanmar: "यान्मार",
     latest_fault_codes: "नवीनतम फॉल्ट कोड", popular_repair_guides: "लोकप्रिय मरम्मत गाइड", latest_videos: "नवीनतम प्रशिक्षण वीडियो",
     view_all: "सभी देखें", view_all_fault_codes: "सभी फॉल्ट कोड देखें", view_all_repair_guides: "सभी गाइड देखें", view_all_videos: "सभी वीडियो देखें",
     need_expert_help: "विशेषज्ञ सहायता चाहिए?", cta_cant_find: "आप जो ढूंढ रहे हैं वो नहीं मिल रहा?",
@@ -456,6 +485,7 @@ export const translations: Record<Language, Translations> = {
     hero_title_line1: "您的虚拟", hero_title_line2: "技师.", hero_title_line3: "真实解答.", hero_title_highlight: "快速.",
     hero_subtitle: "搜索重型设备和发动机的故障代码、维修指南、服务规格和真实机械解答。",
     hero_search_placeholder: "搜索故障代码...", hero_search_btn: "搜索", hero_popular: "热门搜索：",
+    pop_search_1: "Cummins 559", pop_search_2: "久保田 DPF 再生", pop_search_3: "Cat 120M 扭矩", pop_search_4: "Hydrema 922G",
     hero_bubble_name: "您好，我是 ReMech。", hero_bubble_text: "让我们一起解决您的机械问题。",
     cat_fault_codes: "故障代码", cat_fault_codes_desc: "按制造商和系统查找并诊断发动机和机器故障代码。",
     cat_repair_guides: "维修指南", cat_repair_guides_desc: "包含照片、测试和建议的分步维修程序。",
@@ -465,6 +495,8 @@ export const translations: Record<Language, Translations> = {
     stat_fault_codes: "故障代码", stat_repair_guides: "维修指南", stat_service_specs: "服务规格",
     stat_training_videos: "培训视频", stat_updated: "每日更新", stat_updated_label: "新内容持续添加",
     section_manufacturers: "按制造商浏览", view_all_manufacturers: "查看所有制造商",
+    mfg_cummins: "康明斯 (Cummins)", mfg_caterpillar: "卡特彼勒 (CAT)", mfg_volvo: "沃尔沃 (Volvo)",
+    mfg_hitachi: "日立 (Hitachi)", mfg_kobelco: "神钢 (Kobelco)", mfg_komatsu: "小松 (Komatsu)", mfg_yanmar: "洋马 (Yanmar)",
     latest_fault_codes: "最新故障代码", popular_repair_guides: "热门维修指南", latest_videos: "最新培训视频",
     view_all: "查看全部", view_all_fault_codes: "查看所有故障代码", view_all_repair_guides: "查看所有指南", view_all_videos: "查看所有视频",
     need_expert_help: "需要专家帮助？", cta_cant_find: "找不到您需要的内容？",
@@ -506,6 +538,7 @@ export const translations: Record<Language, Translations> = {
     hero_title_line1: "ANG IYONG VIRTUAL", hero_title_line2: "MEKANIKO.", hero_title_line3: "TUNAY NA SAGOT.", hero_title_highlight: "MABILIS.",
     hero_subtitle: "Maghanap ng mga fault code, gabay sa pagkukumpuni, detalye ng serbisyo, at tunay na mekanikal na sagot para sa mabibigat na kagamitan at mga makina.",
     hero_search_placeholder: "Maghanap ng mga fault code...", hero_search_btn: "Hanapin", hero_popular: "Mga sikat na paghahanap:",
+    pop_search_1: "Cummins 559", pop_search_2: "Kubota DPF Regeneration", pop_search_3: "Cat 120M Torque", pop_search_4: "Hydrema 922G",
     hero_bubble_name: "Kumusta, ako si ReMech.", hero_bubble_text: "Magtulungan tayo para matulungan ka sa iyong mga pangangailangan sa mekanika.",
     cat_fault_codes: "FAULT CODES", cat_fault_codes_desc: "Hanapin at i-diagnose ang mga fault code ng makina at kagamitan ayon sa tagagawa at sistema.",
     cat_repair_guides: "GABAY SA PAGKUKUMPUNI", cat_repair_guides_desc: "Hakbang-hakbang na pamamaraan ng pagkukumpuni na may mga larawan, pagsusuri, at payo.",
@@ -514,8 +547,10 @@ export const translations: Record<Language, Translations> = {
     cat_browse_all: "Tingnan lahat",
     stat_fault_codes: "Fault Codes", stat_repair_guides: "Gabay sa Pagkukumpuni", stat_service_specs: "Mga Detalye ng Serbisyo",
     stat_training_videos: "Mga Video ng Pagsasanay", stat_updated: "Ina-update Araw-araw", stat_updated_label: "Bagong Nilalaman Naidagdag",
-    section_manufacturers: "I-BROWSE AYON SA TAGAGAWA", view_all_manufacturers: "Tingnan lahat ng tagagawa",
-    latest_fault_codes: "MGA PINAKABAGONG FAULT CODE", popular_repair_guides: "MGA SIKAT NA GABAY SA PAGKUKUMPUNI", latest_videos: "MGA PINAKABAGONG VIDEO NG PAGSASANAY",
+    section_manufacturers: "I-BROWSE AYON SA MANUFACTURER", view_all_manufacturers: "Tingnan ang lahat ng manufacturer",
+    mfg_cummins: "Cummins", mfg_caterpillar: "Caterpillar", mfg_volvo: "Volvo",
+    mfg_hitachi: "Hitachi", mfg_kobelco: "Kobelco", mfg_komatsu: "Komatsu", mfg_yanmar: "Yanmar",
+    latest_fault_codes: "PINAKABAGONG FAULT CODES", popular_repair_guides: "MGA SIKAT NA GABAY", latest_videos: "PINAKABAGONG VIDEOS",
     view_all: "Tingnan lahat", view_all_fault_codes: "Tingnan lahat ng fault code", view_all_repair_guides: "Tingnan lahat ng gabay", view_all_videos: "Tingnan lahat ng video",
     need_expert_help: "KAILANGAN NG TULONG NG EKSPERTO?", cta_cant_find: "Hindi mahanap ang hinahanap mo?",
     cta_ask_remech: "Itanong ang iyong katanungan sa ReMech at makakuha ng sagot mula sa mga tunay na eksperto sa mekanika.",
@@ -556,6 +591,7 @@ export const translations: Record<Language, Translations> = {
     hero_title_line1: "JOU VIRTUELE", hero_title_line2: "MEGANIKUS.", hero_title_line3: "REGTE ANTWOORDE.", hero_title_highlight: "VINNIG.",
     hero_subtitle: "Soek foutkodes, herstelgidse, diensbesonderhede en werklike meganiese antwoorde vir swaar toerusting en enjins.",
     hero_search_placeholder: "Soek foutkodes...", hero_search_btn: "Soek", hero_popular: "Gewilde soektogte:",
+    pop_search_1: "Cummins 559", pop_search_2: "Kubota DPF Herlewing", pop_search_3: "Cat 120M Wringkrag", pop_search_4: "Hydrema 922G",
     hero_bubble_name: "Hallo, ek is ReMech.", hero_bubble_text: "Kom ons werk saam om jou te help met jou meganiese behoeftes.",
     cat_fault_codes: "FOUTKODES", cat_fault_codes_desc: "Vind en diagnoseer enjin- en masjienfoutkodes per vervaardiger en stelsel.",
     cat_repair_guides: "HERSTELGIDSE", cat_repair_guides_desc: "Stap-vir-stap herstelprosedures met foto's, toetse en advies.",
@@ -564,7 +600,9 @@ export const translations: Record<Language, Translations> = {
     cat_browse_all: "Blaai alles",
     stat_fault_codes: "Foutkodes", stat_repair_guides: "Herstelgidse", stat_service_specs: "Diensbesonderhede",
     stat_training_videos: "Opleidingsvideo's", stat_updated: "Daagliks Opgedateer", stat_updated_label: "Nuwe Inhoud Bygevoeg",
-    section_manufacturers: "BLAAI PER VERVAARDIGER", view_all_manufacturers: "Sien alle vervaardigers",
+    section_manufacturers: "BLAAI DEUR VERVAARDIGER", view_all_manufacturers: "Sien alle vervaardigers",
+    mfg_cummins: "Cummins", mfg_caterpillar: "Caterpillar", mfg_volvo: "Volvo",
+    mfg_hitachi: "Hitachi", mfg_kobelco: "Kobelco", mfg_komatsu: "Komatsu", mfg_yanmar: "Yanmar",
     latest_fault_codes: "NUUTSTE FOUTKODES", popular_repair_guides: "GEWILDE HERSTELGIDSE", latest_videos: "NUUTSTE OPLEIDINGSVIDEO'S",
     view_all: "Sien alles", view_all_fault_codes: "Sien alle foutkodes", view_all_repair_guides: "Sien alle gidse", view_all_videos: "Sien alle video's",
     need_expert_help: "BENODIG KUNDIGE HULP?", cta_cant_find: "Kan jy nie vind wat jy soek nie?",
@@ -606,6 +644,7 @@ export const translations: Record<Language, Translations> = {
     hero_title_line1: "MEKANIK VIRTUAL", hero_title_line2: "ANDA.", hero_title_line3: "JAWABAN NYATA.", hero_title_highlight: "CEPAT.",
     hero_subtitle: "Cari kode kesalahan, panduan perbaikan, spesifikasi servis, dan jawaban mekanik nyata untuk peralatan berat dan mesin.",
     hero_search_placeholder: "Cari kode kesalahan...", hero_search_btn: "Cari", hero_popular: "Pencarian populer:",
+    pop_search_1: "Cummins 559", pop_search_2: "Regenerasi DPF Kubota", pop_search_3: "Cat 120M Torsi", pop_search_4: "Hydrema 922G",
     hero_bubble_name: "Halo, saya ReMech.", hero_bubble_text: "Mari bekerja sama untuk membantu kebutuhan mekanik Anda.",
     cat_fault_codes: "KODE KESALAHAN", cat_fault_codes_desc: "Temukan dan diagnosa kode kesalahan mesin dan alat berat berdasarkan produsen dan sistem.",
     cat_repair_guides: "PANDUAN PERBAIKAN", cat_repair_guides_desc: "Prosedur perbaikan langkah demi langkah dengan foto, pengujian, dan saran.",
@@ -614,7 +653,9 @@ export const translations: Record<Language, Translations> = {
     cat_browse_all: "Lihat semua",
     stat_fault_codes: "Kode Kesalahan", stat_repair_guides: "Panduan Perbaikan", stat_service_specs: "Spesifikasi Servis",
     stat_training_videos: "Video Pelatihan", stat_updated: "Diperbarui Setiap Hari", stat_updated_label: "Konten Baru Ditambahkan",
-    section_manufacturers: "TELUSURI BERDASARKAN PRODUSEN", view_all_manufacturers: "Lihat semua produsen",
+    section_manufacturers: "CARI BERDASARKAN PRODUSEN", view_all_manufacturers: "Lihat semua produsen",
+    mfg_cummins: "Cummins", mfg_caterpillar: "Caterpillar", mfg_volvo: "Volvo",
+    mfg_hitachi: "Hitachi", mfg_kobelco: "Kobelco", mfg_komatsu: "Komatsu", mfg_yanmar: "Yanmar",
     latest_fault_codes: "KODE KESALAHAN TERBARU", popular_repair_guides: "PANDUAN PERBAIKAN POPULER", latest_videos: "VIDEO PELATIHAN TERBARU",
     view_all: "Lihat semua", view_all_fault_codes: "Lihat semua kode kesalahan", view_all_repair_guides: "Lihat semua panduan", view_all_videos: "Lihat semua video",
     need_expert_help: "BUTUH BANTUAN AHLI?", cta_cant_find: "Tidak menemukan apa yang Anda cari?",
@@ -656,6 +697,7 @@ export const translations: Record<Language, Translations> = {
     hero_title_line1: "THỢ MÁY ẢO", hero_title_line2: "CỦA BẠN.", hero_title_line3: "CÂU TRẢ LỜI THỰC.", hero_title_highlight: "NHANH.",
     hero_subtitle: "Tìm kiếm mã lỗi, hướng dẫn sửa chữa, thông số kỹ thuật và câu trả lời cơ khí thực tế cho thiết bị nặng và động cơ.",
     hero_search_placeholder: "Tìm kiếm mã lỗi...", hero_search_btn: "Tìm kiếm", hero_popular: "Tìm kiếm phổ biến:",
+    pop_search_1: "Cummins 559", pop_search_2: "Tái tạo DPF Kubota", pop_search_3: "Cat 120M Lực siết", pop_search_4: "Hydrema 922G",
     hero_bubble_name: "Xin chào, tôi là ReMech.", hero_bubble_text: "Hãy cùng nhau giải quyết các nhu cầu cơ khí của bạn.",
     cat_fault_codes: "MÃ LỖI", cat_fault_codes_desc: "Tìm và chẩn đoán mã lỗi động cơ và máy móc theo nhà sản xuất và hệ thống.",
     cat_repair_guides: "HƯỚNG DẪN SỬA CHỮA", cat_repair_guides_desc: "Quy trình sửa chữa từng bước với ảnh, kiểm tra và lời khuyên.",
@@ -664,8 +706,10 @@ export const translations: Record<Language, Translations> = {
     cat_browse_all: "Xem tất cả",
     stat_fault_codes: "Mã lỗi", stat_repair_guides: "Hướng dẫn sửa chữa", stat_service_specs: "Thông số kỹ thuật",
     stat_training_videos: "Video đào tạo", stat_updated: "Cập nhật hàng ngày", stat_updated_label: "Nội dung mới được thêm",
-    section_manufacturers: "TÌM KIẾM THEO NHÀ SẢN XUẤT", view_all_manufacturers: "Xem tất cả nhà sản xuất",
-    latest_fault_codes: "MÃ LỖI MỚI NHẤT", popular_repair_guides: "HƯỚNG DẪN SỬA CHỮA PHỔ BIẾN", latest_videos: "VIDEO ĐÀO TẠO MỚI NHẤT",
+    section_manufacturers: "DUYỆT THEO NHÀ SẢN XUẤT", view_all_manufacturers: "Xem tất cả nhà sản xuất",
+    mfg_cummins: "Cummins", mfg_caterpillar: "Caterpillar", mfg_volvo: "Volvo",
+    mfg_hitachi: "Hitachi", mfg_kobelco: "Kobelco", mfg_komatsu: "Komatsu", mfg_yanmar: "Yanmar",
+    latest_fault_codes: "MÃ LỖI MỚI NHẤT", popular_repair_guides: "HƯỚNG DẪN PHỔ BIẾN", latest_videos: "VIDEO ĐÀO TẠO MỚI NHẤT",
     view_all: "Xem tất cả", view_all_fault_codes: "Xem tất cả mã lỗi", view_all_repair_guides: "Xem tất cả hướng dẫn", view_all_videos: "Xem tất cả video",
     need_expert_help: "CẦN SỰ HỖ TRỢ CHUYÊN GIA?", cta_cant_find: "Không tìm thấy những gì bạn cần?",
     cta_ask_remech: "Hỏi ReMech câu hỏi của bạn và nhận câu trả lời từ các chuyên gia cơ khí thực sự.",
