@@ -321,12 +321,12 @@ function Index() {
       <div className="dark bg-background text-foreground w-full transition-none z-40 sticky top-0 shadow-sm">
         <header className="mx-auto flex max-w-[1536px] items-center justify-between px-6 py-5 gsap-header">
           <Logo />
-          <nav className="hidden items-center gap-8 lg:flex">
+          <nav className="hidden items-center gap-4 xl:gap-8 lg:flex">
             {nav.map((item, i) => (
               <a
                 key={item}
                 href="#"
-                className={`relative text-base font-semibold transition-colors ${i === 0 ? "text-primary" : "text-foreground/85 hover:text-primary"
+                className={`relative whitespace-nowrap text-sm xl:text-base font-semibold transition-colors ${i === 0 ? "text-primary" : "text-foreground/85 hover:text-primary"
                   }`}
               >
                 {item}
