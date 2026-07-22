@@ -1,7 +1,9 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState, useEffect, useRef } from "react";
 import { useTheme } from "@/hooks/useTheme";
+import { useLanguage } from "@/hooks/useLanguage";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 import gsap from "gsap";
 import { Loader } from "@/components/Loader";
 import {
@@ -10,7 +12,6 @@ import {
   Cog,
   Wrench,
   ClipboardList,
-  MessageCircleMore,
   BookOpen,
   ListChecks,
   Play,
@@ -40,7 +41,8 @@ import videoHydrema from "@/assets/video-hydrema.jpg";
 import videoCat from "@/assets/video-cat.jpg";
 import logoImg from "@/assets/323refef@2x.png";
 import faultIconImg from "@/assets/EngineFaultTransFixed.png";
-import catNewLogo from "@/assets/new/CAT-logo.png";
+import catNewLogo from "@/assets/CAT-logo.png";
+import cumminsLogo from "@/assets/Cummins-Logo-1976-present.png";
 import hitachiNewLogo from "@/assets/118ead8238444012afe6f9d107ede865.png";
 import kobelcoNewLogo from "@/assets/2a7b69a6f90d49b881c12245ced89b9e.png";
 import komatsuNewLogo from "@/assets/965aeac20d4b4cc3bd18ef1bdef28ef0.png";
@@ -70,41 +72,22 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const nav = ["Home", "Fault Codes", "Repair Guides", "Service Specs", "Maintenance", "Tips & Tricks"];
 const popular = ["Cummins 559", "Kubota DPF Regeneration", "Cat 120M Torque Specs", "Hydrema 922G"];
-
-const categories = [
-  { icon: EngineIcon, title: "FAULT CODES", desc: "Find and diagnose engine and machine fault codes by manufacturer and system.", cta: "Browse all" },
-  { icon: Wrench, title: "REPAIR GUIDES", desc: "Step-by-step repair procedures with photos, tests and advice.", cta: "Browse all" },
-  { icon: ClipboardList, title: "SERVICE SPECS", desc: "Specifications, torques, capacities, fluids and service data.", cta: "Browse all" },
-  { icon: ListChecks, title: "MAINTENANCE", desc: "Keep your equipment running with comprehensive maintenance schedules and procedures.", cta: "Browse all" },
-];
-
-const stats = [
-  { icon: Cog, num: "10,000+", label: "Fault Codes" },
-  { icon: BookOpen, num: "500+", label: "Repair Guides" },
-  { icon: ClipboardList, num: "200+", label: "Service Specs" },
-  { icon: Youtube, num: "150+", label: "Training Videos" },
-  { icon: RefreshCw, num: "Updated Daily", label: "New Content Added" },
-];
 
 const manufacturers = [
   {
     name: "Cummins",
     logo: (
-      <div className="relative flex h-16 w-16 items-center justify-center text-background">
-        <svg viewBox="0 0 100 100" className="h-14 w-14 dark:fill-white fill-black">
-          <path d="M 85 25 A 40 40 0 1 0 85 75 L 70 60 A 20 20 0 1 1 70 40 Z" />
-        </svg>
-        <span className="absolute top-[28px] left-[15px] -rotate-45 transform text-[7px] font-black tracking-tight">Cummins</span>
+      <div className="flex h-20 w-20 items-center justify-center">
+        <img src={cumminsLogo} alt="Cummins" className="h-16 w-16 object-contain" />
       </div>
     )
   },
   {
     name: "Caterpillar",
     logo: (
-      <div className="flex h-16 w-16 items-center justify-center">
-        <img src={catNewLogo} alt="Caterpillar" className="h-12 w-12 object-contain" />
+      <div className="flex h-20 w-20 items-center justify-center">
+        <img src={catNewLogo} alt="Caterpillar" className="h-16 w-16 object-contain" />
       </div>
     )
   },
@@ -133,8 +116,8 @@ const manufacturers = [
   {
     name: "Volvo",
     logo: (
-      <div className="flex h-16 w-16 items-center justify-center">
-        <img src={volvoNewLogo} alt="Volvo" className="h-12 w-12 object-contain rounded-md" />
+      <div className="flex h-20 w-20 items-center justify-center">
+        <img src={volvoNewLogo} alt="Volvo" className="h-16 w-16 object-contain rounded-md" />
       </div>
     )
   },
@@ -174,27 +157,6 @@ const manufacturers = [
   }
 ];
 
-const faultCodes = [
-  { code: "559", title: "Injector Metering Rail Pressure Low", brand: "Cummins", system: "Fuel System" },
-  { code: "1117", title: "Fuel Pressure Sensor", brand: "Cummins", system: "Fuel System" },
-  { code: "156", title: "Injector Supply Voltage", brand: "Cummins", system: "Fuel System" },
-  { code: "288", title: "Engine Coolant Temperature High", brand: "Cummins", system: "Engine" },
-  { code: "3251", title: "Turbocharger Boost Pressure Low", brand: "Cummins", system: "Engine" },
-];
-
-const repairGuides = [
-  { img: guideFca, title: "How to Test the Fuel Control Actuator (FCA)", sub: "Cummins ISX / QSX / QSB" },
-  { img: guideDpf, title: "DPF Regeneration Explained & Testing", sub: "All Diesel Engines" },
-  { img: guideHydraulic, title: "Hydraulic Pressure Testing Guide", sub: "General" },
-  { img: guideCat, title: "Cat 120M Grader Common Issues", sub: "Cat Graders" },
-];
-
-const videos = [
-  { img: videoCummins, title: "Cummins 559 –\nFull Diagnostic Walkthrough", time: "18:45" },
-  { img: videoDpf, title: "DPF Cleaning\nStep-by-Step", time: "12:30" },
-  { img: videoHydrema, title: "Hydrema 922G\nHydraulic System Overview", time: "15:20" },
-  { img: videoCat, title: "Cat 120M –\nService & Maintenance", time: "22:10" },
-];
 
 function Logo() {
   return (
@@ -204,14 +166,14 @@ function Logo() {
   );
 }
 
-function Footer() {
+function Footer({ t }: { t: import("@/lib/translations").Translations }) {
   return (
     <footer className="dark bg-card text-foreground py-16 border-t border-border mt-16 transition-none">
       <div className="mx-auto max-w-[1536px] px-6 grid grid-cols-1 md:grid-cols-4 gap-12">
         <div className="flex flex-col gap-4">
           <Logo />
           <p className="text-base text-muted-foreground mt-2">
-            Your trusted virtual mechanic. We provide real answers, fault codes, and repair guides for heavy equipment and diesel engines.
+            {t.footer_tagline}
           </p>
           <div className="flex items-center gap-4 mt-4">
             <button className="h-12 w-12 flex items-center justify-center rounded-full bg-background border border-border hover:border-primary hover:text-primary transition-colors">
@@ -230,29 +192,29 @@ function Footer() {
         </div>
 
         <div>
-          <h4 className="font-display font-bold text-xl mb-6">Quick Links</h4>
+          <h4 className="font-display font-bold text-xl mb-6">{t.footer_quick_links}</h4>
           <ul className="space-y-4 text-base text-muted-foreground">
-            <li><a href="#" className="hover:text-primary transition-colors">Home</a></li>
-            <li><a href="#" className="hover:text-primary transition-colors">Fault Codes</a></li>
-            <li><a href="#" className="hover:text-primary transition-colors">Repair Guides</a></li>
-            <li><a href="#" className="hover:text-primary transition-colors">Service Specs</a></li>
-            <li><a href="#" className="hover:text-primary transition-colors">Training Videos</a></li>
+            <li><a href="#" className="hover:text-primary transition-colors">{t.footer_home}</a></li>
+            <li><a href="#" className="hover:text-primary transition-colors">{t.footer_fault_codes}</a></li>
+            <li><a href="#" className="hover:text-primary transition-colors">{t.footer_repair_guides}</a></li>
+            <li><a href="#" className="hover:text-primary transition-colors">{t.footer_service_specs}</a></li>
+            <li><a href="#" className="hover:text-primary transition-colors">{t.footer_training_videos}</a></li>
           </ul>
         </div>
 
         <div>
-          <h4 className="font-display font-bold text-xl mb-6">Support</h4>
+          <h4 className="font-display font-bold text-xl mb-6">{t.footer_support}</h4>
           <ul className="space-y-4 text-base text-muted-foreground">
-            <li><a href="#" className="hover:text-primary transition-colors">Contact Us</a></li>
-            <li><a href="#" className="hover:text-primary transition-colors">FAQ</a></li>
-            <li><a href="#" className="hover:text-primary transition-colors">Privacy Policy</a></li>
-            <li><a href="#" className="hover:text-primary transition-colors">Terms of Service</a></li>
-            <li><a href="#" className="hover:text-primary transition-colors">Ask ReMech</a></li>
+            <li><a href="#" className="hover:text-primary transition-colors">{t.footer_contact_us}</a></li>
+            <li><a href="#" className="hover:text-primary transition-colors">{t.footer_faq}</a></li>
+            <li><a href="#" className="hover:text-primary transition-colors">{t.footer_privacy}</a></li>
+            <li><a href="#" className="hover:text-primary transition-colors">{t.footer_terms}</a></li>
+            <li><a href="#" className="hover:text-primary transition-colors">{t.footer_ask_remech}</a></li>
           </ul>
         </div>
 
         <div>
-          <h4 className="font-display font-bold text-xl mb-6">Contact</h4>
+          <h4 className="font-display font-bold text-xl mb-6">{t.footer_contact}</h4>
           <ul className="space-y-5 text-base text-muted-foreground">
             <li className="flex items-start gap-4">
               <MapPin className="h-6 w-6 text-primary shrink-0 mt-0.5" />
@@ -270,7 +232,7 @@ function Footer() {
         </div>
       </div>
       <div className="mx-auto max-w-[1536px] px-6 mt-16 pt-8 border-t border-border/50 text-center text-sm text-muted-foreground">
-        &copy; {new Date().getFullYear()} ReMech. All rights reserved.
+        &copy; {new Date().getFullYear()} {t.footer_copyright}
       </div>
     </footer>
   );
@@ -278,10 +240,53 @@ function Footer() {
 
 function Index() {
   const { theme, toggleTheme } = useTheme();
+  const { language, setLanguage, t } = useLanguage();
   const [searchOpen, setSearchOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const containerRef = useRef<HTMLDivElement>(null);
+
+  const nav = [
+    t.nav_home, t.nav_fault_codes, t.nav_repair_guides,
+    t.nav_service_specs, t.nav_maintenance, t.nav_tips,
+  ];
+
+  const categories = [
+    { icon: EngineIcon, title: t.cat_fault_codes, desc: t.cat_fault_codes_desc, cta: t.cat_browse_all },
+    { icon: Wrench, title: t.cat_repair_guides, desc: t.cat_repair_guides_desc, cta: t.cat_browse_all },
+    { icon: ClipboardList, title: t.cat_service_specs, desc: t.cat_service_specs_desc, cta: t.cat_browse_all },
+    { icon: ListChecks, title: t.cat_maintenance, desc: t.cat_maintenance_desc, cta: t.cat_browse_all },
+  ];
+
+  const stats = [
+    { icon: Cog, num: "10,000+", label: t.stat_fault_codes },
+    { icon: BookOpen, num: "500+", label: t.stat_repair_guides },
+    { icon: ClipboardList, num: "200+", label: t.stat_service_specs },
+    { icon: Youtube, num: "150+", label: t.stat_training_videos },
+    { icon: RefreshCw, num: t.stat_updated, label: t.stat_updated_label },
+  ];
+
+  const faultCodes = [
+    { code: "559", title: t.fc_559_title, brand: "Cummins", system: t.sys_fuel_system },
+    { code: "1117", title: t.fc_1117_title, brand: "Cummins", system: t.sys_fuel_system },
+    { code: "156", title: t.fc_156_title, brand: "Cummins", system: t.sys_fuel_system },
+    { code: "288", title: t.fc_288_title, brand: "Cummins", system: t.sys_engine },
+    { code: "3251", title: t.fc_3251_title, brand: "Cummins", system: t.sys_engine },
+  ];
+
+  const repairGuides = [
+    { img: guideFca, title: t.rg_fca_title, sub: t.rg_fca_sub },
+    { img: guideDpf, title: t.rg_dpf_title, sub: t.rg_dpf_sub },
+    { img: guideHydraulic, title: t.rg_hydraulic_title, sub: t.rg_hydraulic_sub },
+    { img: guideCat, title: t.rg_cat_title, sub: t.rg_cat_sub },
+  ];
+
+  const videos = [
+    { img: videoCummins, title: t.vid_cummins_title, time: "18:45" },
+    { img: videoDpf, title: t.vid_dpf_title, time: "12:30" },
+    { img: videoHydrema, title: t.vid_hydrema_title, time: "15:20" },
+    { img: videoCat, title: t.vid_cat_title, time: "22:10" },
+  ];
 
   useEffect(() => {
     // Simulate initial page load animation
@@ -323,7 +328,7 @@ function Index() {
             <input
               autoFocus
               type="text"
-              placeholder="Search fault codes, specs..."
+              placeholder={t.search_placeholder}
               className="w-full bg-card border-2 border-primary/50 focus:border-primary rounded-full py-4 sm:py-6 pl-14 sm:pl-20 pr-16 sm:pr-20 text-lg sm:text-2xl outline-none shadow-2xl transition-all"
             />
             <button
@@ -358,12 +363,13 @@ function Index() {
             >
               <Search className="h-4 w-4 sm:h-5 sm:w-5" strokeWidth={1.8} />
             </button>
+            <LanguageSwitcher language={language} setLanguage={setLanguage} />
             <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
             <Link
               to="/login"
               className="hidden sm:flex h-9 sm:h-11 items-center gap-1.5 sm:gap-2.5 rounded-xl sm:rounded-[14px] border-[1.5px] border-primary bg-transparent px-3 sm:px-6 text-sm sm:text-[15px] font-bold text-primary transition hover:bg-primary/10"
             >
-              <User className="h-4 w-4 sm:h-5 sm:w-5" strokeWidth={2} /> <span className="hidden sm:inline">Sign In</span>
+              <User className="h-4 w-4 sm:h-5 sm:w-5" strokeWidth={2} /> <span className="hidden sm:inline">{t.nav_sign_in}</span>
             </Link>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -382,7 +388,7 @@ function Index() {
                 </a>
               ))}
               <Link to="/login" onClick={() => setMobileMenuOpen(false)} className="mt-2 flex w-full items-center justify-center gap-2 rounded-xl bg-primary py-3 font-bold text-primary-foreground">
-                <User className="h-5 w-5" /> Sign In
+                <User className="h-5 w-5" /> {t.nav_sign_in}
               </Link>
             </nav>
           </div>
@@ -394,12 +400,12 @@ function Index() {
         <div className="mx-auto grid max-w-[1536px] grid-cols-1 gap-8 px-6 pb-16 pt-6 lg:grid-cols-[1fr_1.05fr]">
           <div className="relative z-10">
             <h1 className="font-display text-6xl font-black leading-[0.9] tracking-tight sm:text-7xl lg:text-8xl gsap-hero-title">
-              YOUR VIRTUAL
-              <br className="hidden sm:block" /> MECHANIC.
-              <br /> REAL ANSWERS. <span className="text-primary">FAST.</span>
+              {t.hero_title_line1}
+              <br className="hidden sm:block" /> {t.hero_title_line2}
+              <br /> {t.hero_title_line3} <span className="text-primary">{t.hero_title_highlight}</span>
             </h1>
             <p className="mt-4 sm:mt-6 max-w-xl text-base sm:text-lg leading-relaxed text-muted-foreground gsap-hero-text">
-              Search fault codes, repair guides, service specifications and real-world mechanical answers for heavy equipment and engines.
+              {t.hero_subtitle}
             </p>
 
             <div className="mt-6 sm:mt-8 flex w-full max-w-xl items-center rounded-xl border border-border bg-card p-1.5 shadow-xl gsap-hero-text">
@@ -407,17 +413,17 @@ function Index() {
                 <Search className="h-4 w-4 sm:h-[22px] sm:w-[22px] text-muted-foreground shrink-0" strokeWidth={1.5} />
                 <input
                   type="text"
-                  placeholder="Search fault codes..."
+                  placeholder={t.hero_search_placeholder}
                   className="h-full w-full bg-transparent text-sm sm:text-[15px] text-foreground placeholder:text-muted-foreground focus:outline-none"
                 />
               </div>
               <button className="h-[44px] sm:h-[52px] rounded-lg bg-primary px-4 sm:px-8 text-sm sm:text-[15px] font-bold text-black transition-transform hover:scale-105 active:scale-95 whitespace-nowrap">
-                Search
+                {t.hero_search_btn}
               </button>
             </div>
 
             <div className="mt-6 gsap-hero-text">
-              <p className="mb-3 text-sm font-semibold text-muted-foreground">Popular searches:</p>
+              <p className="mb-3 text-sm font-semibold text-muted-foreground">{t.hero_popular}</p>
               <div className="flex flex-wrap gap-2.5">
                 {popular.map((p) => (
                   <button
@@ -445,9 +451,9 @@ function Index() {
             </div>
             
             <div className="absolute right-[5%] top-[25%] sm:right-[5%] max-w-[280px] rounded-xl border-[1.5px] border-primary bg-[#111111]/95 p-5 shadow-2xl backdrop-blur gsap-hero-bubble hidden md:block">
-              <div className="mb-1 text-[15px] font-bold text-primary">Hi, I'm ReMech.</div>
+              <div className="mb-1 text-[15px] font-bold text-primary">{t.hero_bubble_name}</div>
               <p className="text-[14px] leading-relaxed text-white">
-                Lets work together on helping you with your mechanical needs.
+                {t.hero_bubble_text}
               </p>
               {/* Pointing tail (left) */}
               <div className="absolute top-[50%] -translate-y-1/2 -left-[10px] h-5 w-5 rotate-45 border-b-[1.5px] border-l-[1.5px] border-primary bg-[#111111]" />
@@ -495,9 +501,9 @@ function Index() {
       <section className="mx-auto mt-12 max-w-[1536px] px-4 sm:px-6 gsap-manufacturer">
         <div className="rounded-xl border border-border bg-card p-5 sm:p-8">
           <div className="mb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-            <h2 className="font-display text-xl sm:text-2xl font-bold tracking-wide">BROWSE BY MANUFACTURER</h2>
+            <h2 className="font-display text-xl sm:text-2xl font-bold tracking-wide">{t.section_manufacturers}</h2>
             <a href="#" className="inline-flex items-center gap-1 text-sm sm:text-base font-semibold text-primary">
-              View all manufacturers <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5" />
+              {t.view_all_manufacturers} <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5" />
             </a>
           </div>
           <div className="grid grid-cols-3 gap-4 sm:grid-cols-5 lg:grid-cols-7">
@@ -517,9 +523,9 @@ function Index() {
       <section className="mx-auto mt-12 grid max-w-[1536px] grid-cols-1 gap-6 px-6 lg:grid-cols-3">
         <div className="flex flex-col rounded-xl border border-border bg-card p-8">
           <div className="mb-5 flex items-center justify-between">
-            <h3 className="font-display text-xl font-bold tracking-wide">LATEST FAULT CODES</h3>
+            <h3 className="font-display text-xl font-bold tracking-wide">{t.latest_fault_codes}</h3>
             <a href="#" className="inline-flex items-center gap-1 text-sm font-semibold text-primary">
-              View all <ArrowRight className="h-4 w-4" />
+              {t.view_all} <ArrowRight className="h-4 w-4" />
             </a>
           </div>
           <ul className="divide-y divide-border">
@@ -540,16 +546,16 @@ function Index() {
           </ul>
           <div className="mt-auto pt-6">
             <button className="w-full rounded-lg border-2 border-primary/80 py-3 text-base font-semibold text-primary hover:bg-primary hover:text-primary-foreground">
-              View all fault codes
+              {t.view_all_fault_codes}
             </button>
           </div>
         </div>
 
         <div className="flex flex-col rounded-xl border border-border bg-card p-8">
           <div className="mb-5 flex items-center justify-between">
-            <h3 className="font-display text-xl font-bold tracking-wide">POPULAR REPAIR GUIDES</h3>
+            <h3 className="font-display text-xl font-bold tracking-wide">{t.popular_repair_guides}</h3>
             <a href="#" className="inline-flex items-center gap-1 text-sm font-semibold text-primary">
-              View all <ArrowRight className="h-4 w-4" />
+              {t.view_all} <ArrowRight className="h-4 w-4" />
             </a>
           </div>
           <ul className="divide-y divide-border">
@@ -567,16 +573,16 @@ function Index() {
           </ul>
           <div className="mt-auto pt-6">
             <button className="w-full rounded-lg border-2 border-primary/80 py-3 text-base font-semibold text-primary hover:bg-primary hover:text-primary-foreground">
-              View all repair guides
+              {t.view_all_repair_guides}
             </button>
           </div>
         </div>
 
         <div className="flex flex-col rounded-xl border border-border bg-card p-8">
           <div className="mb-5 flex items-center justify-between">
-            <h3 className="font-display text-xl font-bold tracking-wide">LATEST TRAINING VIDEOS</h3>
+            <h3 className="font-display text-xl font-bold tracking-wide">{t.latest_videos}</h3>
             <a href="#" className="inline-flex items-center gap-1 text-sm font-semibold text-primary">
-              View all <ArrowRight className="h-4 w-4" />
+              {t.view_all} <ArrowRight className="h-4 w-4" />
             </a>
           </div>
           <ul className="divide-y divide-border">
@@ -600,7 +606,7 @@ function Index() {
           </ul>
           <div className="mt-auto pt-6">
             <button className="w-full rounded-lg border-2 border-primary/80 py-3 text-base font-semibold text-primary hover:bg-primary hover:text-primary-foreground">
-              View all videos
+              {t.view_all_videos}
             </button>
           </div>
         </div>
@@ -611,23 +617,21 @@ function Index() {
           <div className="grid grid-cols-1 items-center gap-6 p-6 sm:gap-8 sm:p-8 md:grid-cols-[240px_1fr_auto] md:p-10">
             <img src={mechanicSmall} alt="" loading="lazy" width={640} height={640} className="h-48 sm:h-56 w-full rounded-lg object-cover object-top md:h-40 md:w-60 md:object-center" />
             <div>
-              <h3 className="font-display text-2xl sm:text-3xl font-black tracking-wide">NEED EXPERT HELP?</h3>
+              <h3 className="font-display text-2xl sm:text-3xl font-black tracking-wide">{t.need_expert_help}</h3>
               <p className="mt-3 text-base text-muted-foreground">
-                Can't find what you're looking for?
+                {t.cta_cant_find}
                 <br />
-                Ask ReMech your question and get answers from real mechanical experts.
+                {t.cta_ask_remech}
               </p>
             </div>
             <div className="flex flex-col items-center md:items-end gap-4">
               <button className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-lg bg-primary px-8 py-4 font-display text-lg font-bold text-primary-foreground hover:brightness-110">
-                Ask ReMech Now <ArrowRight className="h-5 w-5" />
+                {t.cta_ask_now} <ArrowRight className="h-5 w-5" />
               </button>
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <ShieldCheck className="h-5 w-5 text-primary shrink-0" />
                 <span className="text-left md:text-right">
-                  Real answers. Real mechanics.
-                  <br className="sm:hidden md:block" />
-                  No robots. Just experience.
+                  {t.cta_real_answers}
                 </span>
               </div>
             </div>
@@ -636,7 +640,7 @@ function Index() {
         </div>
       </section>
       </main>
-      <Footer />
+      <Footer t={t} />
     </div>
   );
 }
