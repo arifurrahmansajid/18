@@ -83,8 +83,8 @@ function Logo() {
 
 function Footer({ t }: { t: import("@/lib/translations").Translations }) {
   return (
-    <footer className="dark bg-card text-foreground py-16 border-t border-border mt-16 transition-none">
-      <div className="mx-auto max-w-[1536px] px-6 grid grid-cols-1 md:grid-cols-4 gap-12">
+    <footer className="dark bg-card text-foreground py-8 sm:py-16 border-t border-border mt-8 sm:mt-16 transition-none">
+      <div className="mx-auto max-w-[1536px] px-6 grid grid-cols-1 md:grid-cols-4 gap-8 sm:gap-12">
         <div className="flex flex-col gap-4">
           <Logo />
           <p className="text-base text-muted-foreground mt-2">
@@ -592,7 +592,7 @@ function Index() {
           </div>
         </section>
 
-        <section className="mx-auto mt-12 max-w-[1536px] px-6 pb-16">
+        <section className="mx-auto mt-12 max-w-[1536px] px-6 pb-8 sm:pb-16">
           <div className="relative overflow-hidden rounded-xl border border-border bg-card">
             <div className="grid grid-cols-1 items-center gap-6 p-6 sm:gap-8 sm:p-8 md:grid-cols-[240px_1fr_auto] md:p-10">
               <img src={mechanicSmall} alt="" loading="lazy" width={640} height={640} className="h-48 sm:h-56 w-full rounded-lg object-cover object-top md:h-40 md:w-60 md:object-center" />
