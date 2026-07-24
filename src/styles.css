@@ -29,7 +29,7 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
   --font-display: "Barlow Condensed", "Oswald", sans-serif;
-  --font-sans: "Inter", system-ui, sans-serif;
+  --font-sans: "Inter", "Twemoji Country Flags", system-ui, sans-serif;
 }
 
 :root {

@@ -20,17 +20,17 @@ export interface LanguageMeta {
 }
 
 export const LANGUAGES: LanguageMeta[] = [
-  { code: "en", name: "English",    nativeName: "English",          flag: "🇬🇧", dir: "ltr" },
-  { code: "es", name: "Spanish",    nativeName: "Español",          flag: "🇪🇸", dir: "ltr" },
-  { code: "pt", name: "Portuguese", nativeName: "Português",        flag: "🇧🇷", dir: "ltr" },
-  { code: "fr", name: "French",     nativeName: "Français",         flag: "🇫🇷", dir: "ltr" },
-  { code: "ar", name: "Arabic",     nativeName: "العربية",          flag: "🇸🇦", dir: "rtl" },
-  { code: "hi", name: "Hindi",      nativeName: "हिन्दी",            flag: "🇮🇳", dir: "ltr" },
-  { code: "zh", name: "Chinese",    nativeName: "中文",              flag: "🇨🇳", dir: "ltr" },
-  { code: "tl", name: "Filipino",   nativeName: "Filipino",         flag: "🇵🇭", dir: "ltr" },
-  { code: "af", name: "Afrikaans",  nativeName: "Afrikaans",        flag: "🇿🇦", dir: "ltr" },
-  { code: "id", name: "Indonesian", nativeName: "Bahasa Indonesia", flag: "🇮🇩", dir: "ltr" },
-  { code: "vi", name: "Vietnamese", nativeName: "Tiếng Việt",       flag: "🇻🇳", dir: "ltr" },
+  { code: "af", name: "Afrikaans",          nativeName: "Afrikaans",        flag: "🇿🇦", dir: "ltr" },
+  { code: "ar", name: "Arabic",             nativeName: "العربية",          flag: "🇸🇦", dir: "rtl" },
+  { code: "zh", name: "Chinese",            nativeName: "中文",              flag: "🇨🇳", dir: "ltr" },
+  { code: "en", name: "English",            nativeName: "English",          flag: "🇬🇧", dir: "ltr" },
+  { code: "fr", name: "French",             nativeName: "Français",         flag: "🇫🇷", dir: "ltr" },
+  { code: "hi", name: "Hindi",              nativeName: "हिन्दी",            flag: "🇮🇳", dir: "ltr" },
+  { code: "id", name: "Indonesian",         nativeName: "Bahasa Indonesia", flag: "🇮🇩", dir: "ltr" },
+  { code: "pt", name: "Portuguese",         nativeName: "Português",        flag: "🇧🇷", dir: "ltr" },
+  { code: "es", name: "Spanish",            nativeName: "Español",          flag: "🇪🇸", dir: "ltr" },
+  { code: "tl", name: "Tagalog / Filipino", nativeName: "Filipino",         flag: "🇵🇭", dir: "ltr" },
+  { code: "vi", name: "Vietnamese",         nativeName: "Tiếng Việt",       flag: "🇻🇳", dir: "ltr" },
 ];
 
 export interface Translations {
