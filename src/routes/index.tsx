@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useState, useEffect, useRef } from "react";
 import { useTheme } from "@/hooks/useTheme";
 import { useLanguage } from "@/hooks/useLanguage";
@@ -156,6 +156,7 @@ function Footer({ t }: { t: import("@/lib/translations").Translations }) {
 function Index() {
   const { theme, toggleTheme } = useTheme();
   const { language, setLanguage, t } = useLanguage();
+  const navigate = useNavigate();
   const [searchOpen, setSearchOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -301,21 +302,31 @@ function Index() {
     <div ref={containerRef} className={`min-h-screen bg-background text-foreground relative ${theme}`}>
       {searchOpen && (
         <div className="fixed inset-0 z-50 flex flex-col items-center bg-background/95 pt-[15vh] sm:pt-[20vh] backdrop-blur-sm px-4 sm:px-6">
-          <div className="w-full max-w-3xl relative">
+          <form 
+            onSubmit={(e) => {
+              e.preventDefault();
+              const formData = new FormData(e.currentTarget);
+              const q = formData.get("q") as string;
+              if (q) navigate({ to: "/search", search: { q } });
+            }}
+            className="w-full max-w-3xl relative"
+          >
             <Search className="absolute left-5 sm:left-6 top-1/2 -translate-y-1/2 h-6 w-6 sm:h-8 sm:w-8 text-muted-foreground" />
             <input
               autoFocus
               type="text"
+              name="q"
               placeholder={t.search_placeholder}
               className="w-full bg-card border-2 border-primary/50 focus:border-primary rounded-full py-4 sm:py-6 pl-14 sm:pl-20 pr-16 sm:pr-20 text-lg sm:text-2xl outline-none shadow-2xl transition-all"
             />
             <button
+              type="button"
               onClick={() => setSearchOpen(false)}
               className="absolute right-3 sm:right-6 top-1/2 -translate-y-1/2 flex items-center justify-center rounded-full p-2 text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
             >
               <X className="h-5 w-5 sm:h-6 sm:w-6" strokeWidth={2} />
             </button>
-          </div>
+          </form>
         </div>
       )}
       <div className="dark bg-background text-foreground w-full transition-none z-40 sticky top-0 shadow-sm">
@@ -386,19 +397,34 @@ function Index() {
                 {t.hero_subtitle}
               </p>
 
-              <div className="mt-6 sm:mt-8 flex w-full max-w-xl items-center rounded-xl border border-border bg-card p-1.5 shadow-xl gsap-hero-text">
+              <form 
+                onSubmit={(e) => {
+                  e.preventDefault();
+                  const formData = new FormData(e.currentTarget);
+                  const q = formData.get("q") as string;
+                  if (q) navigate({ to: "/search", search: { q } });
+                }}
+                className="mt-6 sm:mt-8 flex w-full max-w-xl items-center rounded-xl border border-border bg-card p-1.5 shadow-xl gsap-hero-text"
+              >
                 <div className="flex flex-1 items-center gap-2 sm:gap-3 px-3 sm:px-4 h-[44px] sm:h-[52px]">
                   <Search className="h-4 w-4 sm:h-[22px] sm:w-[22px] text-muted-foreground shrink-0" strokeWidth={1.5} />
                   <input
                     type="text"
+                    name="q"
                     placeholder={t.hero_search_placeholder}
                     className="h-full w-full bg-transparent text-sm sm:text-[15px] text-foreground placeholder:text-muted-foreground focus:outline-none"
                   />
                 </div>
-                <button className="h-[44px] sm:h-[52px] rounded-lg bg-primary px-4 sm:px-8 text-sm sm:text-[15px] font-bold text-black transition-transform hover:scale-105 active:scale-95 whitespace-nowrap">
+                <Link 
+                  to="/search" 
+                  className="mr-3 text-xs font-semibold text-muted-foreground hover:text-primary transition-colors hidden sm:block"
+                >
+                  Advanced
+                </Link>
+                <button type="submit" className="h-[44px] sm:h-[52px] rounded-lg bg-primary px-4 sm:px-8 text-sm sm:text-[15px] font-bold text-black transition-transform hover:scale-105 active:scale-95 whitespace-nowrap">
                   {t.hero_search_btn}
                 </button>
-              </div>
+              </form>
 
               <div className="mt-6 gsap-hero-text">
                 <p className="mb-3 text-sm font-semibold text-muted-foreground">{t.hero_popular}</p>
