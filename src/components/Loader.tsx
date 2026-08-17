@@ -35,7 +35,7 @@ export function Loader() {
       </div>
       
       <div className="mt-8 font-display text-xl font-black tracking-[0.2em] text-foreground">
-        LOADING<span className="text-primary">...</span>
+        <span className="text-primary">...</span>
       </div>
     </div>
   );
